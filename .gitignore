@@ -1,0 +1,53 @@
+# Arquivos temporários do Windows
+*~
+*.swp
+Thumbs.db
+desktop.ini
+
+# Diretórios de downloads e instalação
+downloads/
+temp/
+installed/
+
+# Arquivos de log
+*.log
+logs/
+
+# Arquivos de configuração local
+*.user
+*.suo
+*.userprefs
+
+# Diretórios de build
+bin/
+obj/
+build/
+Debug/
+Release/
+
+# Arquivos de cache do PowerShell
+*.ps1xml
+*.psm1
+*.psd1
+*.ps1.meta
+
+# Arquivos de ambiente
+.env
+.env.*
+
+# Arquivos de IDE
+.vs/
+.vscode/
+*.code-workspace
+
+# Arquivos de pacote
+*.zip
+*.7z
+*.rar
+*.exe
+*.msi
+*.dll
+
+# Exceções
+!Start.bat
+!Windeckhelper.ps1 
