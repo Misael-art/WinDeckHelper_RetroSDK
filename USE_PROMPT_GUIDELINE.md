@@ -93,29 +93,130 @@ Você é um assistente de desenvolvimento para o PROJETO e especialista em autom
 
 ✅
 MEU COMANDO:
-DEV: faça a implantação na área Tweaks
+DEV: Desenvolva um script PowerShell totalmente automatizado para instalar e configurar os seguintes tweaks no Windows 11 em um Steam Deck (LCD). O script deve ser executado sem intervenção manual, com logs detalhados e tratamento de erros. Use ferramentas como Chocolatey/Winget para instalações e inclua comentários explicativos.
 
-automatize a instalação e configuração do Clover Bootloader no Windows 11, com foco em detectar automaticamente sistemas Linux instalados no computador sem intervenção do usuário.
+Tweaks a Implementar:
+Gyroscope (SteamDeckGyroDSU)
+Clone o repositório: https://github.com/rafael89h/SteamDeckGyroDSU
+Instale dependências (Python, drivers) e configure o serviço para inicializar automaticamente.
+Modo de Desempenho (RyzenAdj)
+Baixe o RyzenAdj (binário ou via compilação).
+Aplique os comandos:
+bash
+Copy
+1
+ryzenadj --stapm-limit=15000 --fast-limit=15000 --slow-limit=10000  
+Crie um agendamento de tarefa para aplicar o TDP no boot.
+Desativar Game Bar e Game Mode
+Execute:
+powershell
+Copy
+1
+2
+Disable-GameBarTips  
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\GameBar" -Name "AutoGameModeEnabled" -Value 0  
+Mover Arquivo de Paginação
+Detecte SSDs externos (ex: D:\).
+Redirecione o pagefile para o SSD via registro do Windows:
+powershell
+Copy
+1
+Set-WmiInstance -Path "Win32_PageFileSetting.Name='D:\\pagefile.sys'" -Arguments @{InitialSize=4096; MaximumSize=8192}  
+Desativar OneDrive e Cortana
+Remova OneDrive:
+powershell
+Copy
+1
+2
+taskkill /f /im OneDrive.exe  
+Remove-Item -Recurse -Force "$env:LOCALAPPDATA\Microsoft\OneDrive"  
+Desative Cortana via Política de Grupo ou Registro.
+Compactação NTFS
+Aplique compressão em pastas críticas:
+powershell
+Copy
+1
+compact /c /i /q "C:\Windows\System32"  
+Monitoramento (HWInfo/Decky Loader)
+Instale o HWInfo (via Chocolatey) e configure alertas de temperatura.
+Instale o Decky Loader para Windows: https://github.com/ACCESS-DENIIED/Decky-Loader-For-Windows.git.
+Controle de Fans (ThrottleStop)
+Baixe o ThrottleStop e crie um perfil para ajustar curvas de ventoinha.
+Configure agendamento de tarefa para aplicar configurações no boot.
+Keystone
+Instale o Keystone (ferramenta de perfis de TDP/GPU).
+Configure perfis para jogos e desktop.
+Corrigir Relógio (Registro)
+Execute:
+powershell
+Copy
+1
+reg add "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation" /v RealTimeIsUniversal /d 1 /t REG_DWORD /f  
+Requisitos Adicionais:
+Verifique se o script está sendo executado como Administrador.
+Baixe dependências automaticamente (ex: Python, Git).
+Trate erros (ex: falha no download, permissões).
+Crie logs em C:\TweakLogs.
+Reinicie serviços/aplicações conforme necessário.
 
-O script deve seguir os seguintes requisitos:
+Gerenciamento de Energia Avançado
+Perfis de TDP Dinâmicos :
+Instale o Keystone (https://github.com/keystone-enclave/keystone ) e configure dois perfis:
+Jogos : TDP de 15W (use ryzenadj --stapm-limit=15000).
+Desktop : TDP de 8W (use ryzenadj --stapm-limit=8000).
+Crie atalhos para alternar perfis via PowerShell .
+Desativar Sleep Mode :
+Execute:
+powershell
+Copy
+1
+powercfg /change standby-timeout-ac 0  # Desativa sleep no modo AC [[4]]  
+2. Armazenamento e Sistema
+Habilitar TRIM para SSD :
+powershell
+Copy
+1
+Optimize-Volume -DriveLetter C -ReTrim -Verbose  # Mantém SSD rápido [[4]]  
+3. Controles e Entradas
+Mapeamento de Botões (Durazno) :
+Baixe e instale o Durazno (https://github.com/ramensoftware/durazno ).
+Configure dead zones e sensibilidade via DuraznoConfig.exe.
+Desativar Trackpads em Jogos :
+Crie um script AutoHotkey que desative os trackpads ao detectar processos de jogos (ex: steam.exe, epicgameslauncher.exe).
+4. Rede e Conectividade
+Prioridade de Rede (Process Lasso) :
+Instale o Process Lasso (via Chocolatey) e configure regras para priorizar tráfego de jogos.
+Exemplo:
+powershell
+Copy
+1
+choco install -y processlasso  
+Conexão Ethernet :
+Detecte adaptadores USB-C/Ethernet e defina métrica de rota prioritária via netsh interface.
+5. Experiência do Usuário
+Customização da Central de Ações :
+Remova atalhos como "Focus Assist" via registro:
+powershell
+Copy
+1
+Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowTaskViewButton"  
+Rainmeter :
+Instale o Rainmeter e widgets de monitoramento (ex: HWInfo):
+powershell
+Copy
+1
+choco install -y rainmeter  
+6. Backup e Restauração
+Criar Imagem do Sistema :
+Use wbadmin para criar um snapshot:
+powershell
+Copy
+1
+wbadmin start backup -backupTarget:D: -include:C: -quiet  
+Hiren’s BootCD :
+Baixe a ISO e crie um USB bootável (instruções manuais necessárias).
 
-Instalação do Clover Bootloader :
-Use o instalador oficial do Clover (CloverInstaller.exe) para instalar o bootloader na partição EFI.
-Execute o instalador em modo silencioso (/S) e especifique o diretório de destino como C:\EFI\Clover.
-Detecção Automática de Sistemas Linux :
-Pesquise na partição EFI (C:\EFI) por arquivos .efi relacionados ao Linux (por exemplo, aqueles localizados em subdiretórios como ubuntu, linux, ou outros).
-Liste todos os arquivos .efi encontrados e armazene seus caminhos relativos (substituindo C:\ por \).
-Configuração Automática do config.plist :
-Localize o arquivo config.plist no diretório de instalação do Clover (C:\EFI\Clover\config.plist).
-Adicione entradas para cada sistema Linux detectado no menu de inicialização do Clover. As entradas devem incluir:
-FullTitle: Nome amigável (por exemplo, "Ubuntu" ou "Linux").
-Path: Caminho relativo do arquivo .efi.
-Backup e Segurança :
-Antes de realizar qualquer modificação no arquivo config.plist, crie um backup com o nome config_backup.plist.
-Certifique-se de que o script funcione apenas se for executado com privilégios administrativos.
-Saída do Script :
-Exiba mensagens informativas no console durante a execução (por exemplo, "Instalando Clover...", "Detectando sistemas Linux...", "Atualizando config.plist...").
-No final, exiba uma mensagem indicando sucesso ou falha.
+os mesmos devem ser listados na área Tweaks do progama
 
 ## 🚨
 CONTEXTO:
@@ -135,12 +236,33 @@ PROCESSO OBRIGATÓRIO:
 7.  Avalie a necessidade de atualizar @docs/VERSION.md para manter Histórico de versões atualizado
 
 
+Você é um assistente de desenvolvimento para o PROJETO e especialista em automação de sistemas e scriptingque  que DEVE:
+1.  SEMPRE consultar e seguir @AI_GUIDELINES.md antes de qualquer ação
+2.  Validar TODAS as solicitações usando a matriz de validação definida
+3.  Registrar TODAS as ações no formato de log especificado
+
+✅
+MEU COMANDO:
+DEV:
+
+faça uma proposta de plano para o projeto se tornar modular, com coesão no código, logica clara e funcional para checagem de ambiente com instalação completa dos programas de forma a dar o feedback para o susuário e amigavel
 
 
+## 🚨
+CONTEXTO:
+O projeto esta em risco pois toda logica esta em @Windeckhelper.ps1 causando o risco de quebra constante do script e dificil manutenção
 
+## ----------------------------------------------------------------------------
 
-Exemplo de metodo para edição de arquivos grandes com linhas especificas conforme o log quando o modelo esta tendo dificuldades
+*   você deve ser capaz de seguir as instruções e realizar as tarefas sem ambiguidade.
 
-1 - Select-String -Path .\Windeckhelper.ps1 -Pattern 'Write-Error.*\$_' | ForEach-Object { "Linha $($_.LineNumber): $($_.Line.Trim())" }
+## 📋
+PROCESSO OBRIGATÓRIO:
 
-2 - Select-String -Path .\Windeckhelper.ps1 -Pattern 'MessageBox.*\$_' | ForEach-Object { "Linha $($_.LineNumber): $($_.Line.Trim())" }
+1.  Consultar AI_GUIDELINES.md
+2.  Executar checklist pré-implementação
+3.  Validar em todas as camadas
+4.  Gerar log de auditoria
+5.  Retornar resultado padronizado
+6.  Confirme se deu certo e se possível faça testes
+7.  Avalie a necessidade de atualizar @docs/VERSION.md para manter Histórico de versões atualizado

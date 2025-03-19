@@ -1,0 +1,166 @@
+# Módulo de Instalação de Drivers (modules/installation/drivers.psm1)
+# Exemplo de implementação para o plano de modularização
+
+# Importa módulos necessários
+Import-Module "$PSScriptRoot\..\core\logging.psm1"
+Import-Module "$PSScriptRoot\..\core\ui.psm1"
+Import-Module "$PSScriptRoot\..\environment\system.psm1"
+
+# Função principal para instalação de drivers
+function Install-Drivers {
+    param(
+        [switch]$Silent,
+        [string]$DriverPath = "$PSScriptRoot\..\..\wlan_driver"
+    )
+    
+    Write-Log "Iniciando instalação de drivers" -Level "INFO"
+    
+    # Verifica se o diretório de drivers existe
+    if (-not (Test-Path $DriverPath)) {
+        Write-Log "Diretório de drivers não encontrado: $DriverPath" -Level "ERROR"
+        return $false
+    }
+    
+    # Detecta o tipo de display para selecionar o driver correto
+    $displayType = Get-DisplayType
+    Write-Log "Tipo de display detectado: $displayType" -Level "INFO"
+    
+    # Seleciona o diretório de driver apropriado
+    $driverDir = switch ($displayType) {
+        "LCD" { Join-Path $DriverPath "lcd" }
+        "OLED10" { Join-Path $DriverPath "oled_10" }
+        "OLED11" { Join-Path $DriverPath "oled_11" }
+        default { 
+            Write-Log "Tipo de display não suportado: $displayType" -Level "ERROR"
+            return $false
+        }
+    }
+    
+    if (-not (Test-Path $driverDir)) {
+        Write-Log "Diretório de driver específico não encontrado: $driverDir" -Level "ERROR"
+        return $false
+    }
+    
+    # Instala o driver
+    try {
+        if (-not $Silent) {
+            Show-Progress -Status "Instalando driver WLAN para display $displayType" -PercentComplete 10 -Phase "Instalação de Drivers" -DetailStatus "Preparando instalação..."
+        }
+        
+        # Verifica se o driver já está instalado
+        if (Test-DriverInstalled -DriverName "Qualcomm QCA61x4A Wireless Network Adapter") {
+            Write-Log "Driver WLAN já está instalado" -Level "INFO"
+            
+            if (-not $Silent) {
+                Show-Progress -Status "Driver WLAN já está instalado" -PercentComplete 100 -Phase "Instalação de Drivers" -DetailStatus "Nenhuma ação necessária"
+            }
+            
+            return $true
+        }
+        
+        # Instala o certificado do driver se necessário
+        $certPath = "$PSScriptRoot\..\..\drivers.cer"
+        if (Test-Path $certPath) {
+            if (-not $Silent) {
+                Show-Progress -Status "Instalando certificado do driver" -PercentComplete 30 -Phase "Instalação de Drivers" -DetailStatus "Importando certificado..."
+            }
+            
+            Import-Certificate -FilePath $certPath -CertStoreLocation Cert:\LocalMachine\TrustedPublisher | Out-Null
+            Write-Log "Certificado do driver instalado com sucesso" -Level "SUCCESS"
+        }
+        
+        # Executa o instalador do driver
+        if (-not $Silent) {
+            Show-Progress -Status "Executando instalador do driver" -PercentComplete 50 -Phase "Instalação de Drivers" -DetailStatus "Instalando driver WLAN..."
+        }
+        
+        $installBat = Join-Path $driverDir "Install.bat"
+        if (Test-Path $installBat) {
+            $process = Start-Process -FilePath $installBat -WorkingDirectory $driverDir -Wait -PassThru -WindowStyle Hidden
+            
+            if ($process.ExitCode -eq 0) {
+                Write-Log "Driver WLAN instalado com sucesso" -Level "SUCCESS"
+                
+                if (-not $Silent) {
+                    Show-Progress -Status "Driver WLAN instalado com sucesso" -PercentComplete 100 -Phase "Instalação de Drivers" -DetailStatus "Instalação concluída"
+                }
+                
+                return $true
+            } else {
+                Write-Log "Falha na instalação do driver WLAN. Código de saída: $($process.ExitCode)" -Level "ERROR"
+                
+                if (-not $Silent) {
+                    Show-Progress -Status "Falha na instalação do driver WLAN" -PercentComplete 100 -Phase "Instalação de Drivers" -DetailStatus "Erro durante a instalação"
+                }
+                
+                return $false
+            }
+        } else {
+            Write-Log "Arquivo de instalação do driver não encontrado: $installBat" -Level "ERROR"
+            return $false
+        }
+    } catch {
+        $errorMsg = $_.Exception.Message
+        Write-Log "Erro durante a instalação do driver: $errorMsg" -Level "ERROR"
+        
+        if (-not $Silent) {
+            Show-Progress -Status "Erro durante a instalação do driver" -PercentComplete 100 -Phase "Instalação de Drivers" -DetailStatus "$errorMsg"
+        }
+        
+        return $false
+    }
+}
+
+# Função auxiliar para verificar se um driver está instalado
+function Test-DriverInstalled {
+    param(
+        [string]$DriverName
+    )
+    
+    try {
+        $driver = Get-WmiObject Win32_PnPSignedDriver | Where-Object { $_.DeviceName -like "*$DriverName*" }
+        return $null -ne $driver
+    } catch {
+        Write-Log "Erro ao verificar driver instalado: $($_.Exception.Message)" -Level "ERROR"
+        return $false
+    }
+}
+
+# Função para detectar o tipo de display
+function Get-DisplayType {
+    try {
+        # Lógica para detectar o tipo de display
+        # Esta é uma implementação simplificada para exemplo
+        $monitors = Get-WmiObject WmiMonitorID -Namespace root\wmi
+        
+        foreach ($monitor in $monitors) {
+            # Converte o ManufacturerName de bytes para string
+            $manufacturer = [System.Text.Encoding]::ASCII.GetString($monitor.ManufacturerName -ne 0)
+            $productCode = [System.Text.Encoding]::ASCII.GetString($monitor.ProductCodeID -ne 0)
+            
+            # Lógica para identificar o tipo de display com base no fabricante e código do produto
+            if ($manufacturer -like "*BOE*") {
+                if ($productCode -like "*OLED*") {
+                    if ($productCode -like "*11*") {
+                        return "OLED11"
+                    } else {
+                        return "OLED10"
+                    }
+                }
+            } else {
+                # Assume LCD para outros fabricantes
+                return "LCD"
+            }
+        }
+        
+        # Se não conseguir detectar, assume LCD como padrão
+        Write-Log "Não foi possível detectar o tipo de display, assumindo LCD" -Level "WARNING"
+        return "LCD"
+    } catch {
+        Write-Log "Erro ao detectar tipo de display: $($_.Exception.Message)" -Level "ERROR"
+        return "LCD" # Valor padrão em caso de erro
+    }
+}
+
+# Exporta as funções do módulo
+Export-ModuleMember -Function Install-Drivers, Test-DriverInstalled, Get-DisplayType
