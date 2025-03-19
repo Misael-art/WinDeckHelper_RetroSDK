@@ -1,108 +1,139 @@
 # WinDeckHelper
 
-WinDeckHelper é uma ferramenta de automação para configuração e instalação de ambiente de desenvolvimento para PC Engines, especialmente otimizada para dispositivos como o Steam Deck rodando Windows.
+Um assistente automatizado para configuração e instalação de ambientes de desenvolvimento para PC Engines, otimizado para dispositivos como o Steam Deck rodando Windows.
 
 ## 🚀 Funcionalidades
 
-- 🔧 Instalação automatizada de ferramentas de desenvolvimento
-- 📦 Gerenciamento de SDKs para desenvolvimento de jogos retro
-- 🎮 Instalação de emuladores
-- 🛠️ Configuração de drivers e runtimes
-- 🤖 Suporte para ferramentas de IA
-- 🔄 Verificação automática de dependências
+### Instalação Automatizada
+- **Drivers Essenciais**
+  - AMD Video Drivers (otimizados para Steam Deck)
+  - Bluetooth
+  - Audio
+  - Wi-Fi
+  - Controles e Periféricos
+
+### 🛠️ Ferramentas de Desenvolvimento
+- **IDEs e Editores**
+  - Visual Studio Code
+  - Visual Studio Community
+  - Notepad++
+  - Sublime Text
+
+- **Controle de Versão**
+  - Git
+  - GitHub Desktop
+  - TortoiseGit
+
+- **SDKs e Frameworks**
+  - SGDK (Sega Genesis Development Kit)
+  - PSn00bSDK (PlayStation Development)
+  - PS2DEV (PlayStation 2 Development)
+  - SNESDev (Super Nintendo Development)
+  - GBDK (Game Boy Development)
+
+### 🎮 Emuladores
+- RetroArch
+- PCSX2
+- Dolphin
+- RPCS3
+- Xemu
+- Cemu
+- Yuzu
+
+### 🔧 Utilitários
+- 7-Zip
+- CPU-Z
+- GPU-Z
+- HWiNFO
+- MSI Afterburner
+- Process Lasso
+- MemReduct
+- OBS Studio
+- VLC Media Player
+- K-Lite Codec Pack
+
+### 🤖 Ferramentas de IA
+- Ollama
+- LM Studio
+
+### 🔄 Tweaks e Otimizações
+- **Sistema**
+  - Desativar Game Bar
+  - Desativar Login após Suspensão
+  - Mostrar Teclado Virtual
+
+- **Multi-Boot**
+  - Clover Bootloader (Detecção automática de sistemas Linux)
+  - Configuração de dual/multi-boot automatizada
+  - Backup de configuração de boot
 
 ## 📋 Requisitos do Sistema
-
 - Windows 10/11
 - PowerShell 5.1 ou superior
 - Conexão com a Internet
-- Privilégios de administrador
+- Privilégios de Administrador
 
-## 🎯 Grupos de Instalação
+## 🔍 Verificações Automáticas
+- Detecção de Visual C++ Runtimes
+  - Verificação dupla (DLLs e Registro)
+  - Suporte para versões de 2005 a 2022
+  - Verificação de arquiteturas x86 e x64
+  - Informações detalhadas de versão
 
-### Drivers Obrigatórios
-- Driver de Vídeo AMD
-- Driver de Áudio
-- Driver Bluetooth
-- Driver do Leitor de Cartão
-- Driver BTRFS
+- Verificação de SDKs
+  - Detecção automática de instalação
+  - Verificação de dependências
+  - Validação de variáveis de ambiente
+  - Checagem de arquivos críticos
 
-### Ferramentas de Desenvolvimento
-- MinGW-w64
-- Clang
-- CMake
-- Ninja
-- vcpkg
-- SDL2
-- SDL2-TTF
-- ZLIB
-- PNG
-- Boost
-- Dear ImGui
-- E muito mais...
+## 💻 Interface
+- Design moderno e intuitivo
+- Tema escuro otimizado
+- Seleção de componentes em árvore
+- Botões de ação com tooltips
+- Barra de progresso em tempo real
+- Log detalhado de operações
 
-### SDKs
-- SGDK (Sega Genesis)
-- PSn00bSDK (PlayStation 1)
-- PS2DEV (PlayStation 2)
-- SNESDev (Super Nintendo)
-- DevkitSMS (Master System/Game Gear)
-- GBDK (Game Boy)
-- E outros...
-
-### Emuladores
-- Stella (Atari 2600)
-- ProSystem (Atari 7800)
-- Handy (Atari Lynx)
-- ColEm (ColecoVision)
-- jzIntv (Intellivision)
-- E muitos outros...
-
-### Runtimes e Bibliotecas
-- Microsoft Visual C++ Runtimes
-- DirectX
-- OpenAL
-- PhysX
-- UE3/UE4 Prerequisites
-
-## 🚀 Como Usar
+## 📥 Instalação
 
 1. Clone o repositório:
 ```powershell
-git clone https://github.com/seu-usuario/WinDeckHelper.git
+git clone https://github.com/seu-usuario/windeckhelper.git
 ```
 
-2. Execute o script Start.bat como administrador
-
-3. Selecione os componentes desejados na interface gráfica
-
-4. Clique em "Instalar" para iniciar o processo
+2. Execute o script como administrador:
+```powershell
+powershell -ExecutionPolicy Bypass -File Windeckhelper.ps1
+```
 
 ## ⚙️ Configuração
-
-O script detectará automaticamente:
+O script detecta automaticamente:
 - Sistema operacional e arquitetura
 - Componentes já instalados
 - Dependências necessárias
-- Versão do LCD/OLED para drivers específicos
+- Espaço em disco disponível
+- Conexão com a internet
 
 ## 🤝 Contribuindo
 
 1. Faça um Fork do projeto
-2. Crie uma Branch para sua Feature (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Push para a Branch (`git push origin feature/AmazingFeature`)
+2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add: nova funcionalidade'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
 5. Abra um Pull Request
 
 ## 📝 Licença
-
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
-## ✨ Agradecimentos
-
+## 🙏 Agradecimentos
 - Comunidade Steam Deck
-- Contribuidores de SDKs e emuladores
-- Todos os desenvolvedores que tornaram este projeto possível
+- Contribuidores de SDKs e Emuladores
+- Todos os desenvolvedores envolvidos no projeto
+
+## 📞 Suporte
+- Abra uma issue para reportar bugs
+- Sugestões são sempre bem-vindas
+- Participe das discussões no GitHub
 
 [ENG](https://github.com/anejolov/WinDeckHelper/blob/main/README.md) | [РУС](https://github.com/anejolov/WinDeckHelper/blob/main/README_RUS.md)
 
