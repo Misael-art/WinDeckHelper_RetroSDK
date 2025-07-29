@@ -1,0 +1,31 @@
+# Runtimes Essenciais
+
+Node.js:
+  category: Runtimes
+  description: Ambiente de execução JavaScript Node.js (LTS)
+  # Link para a versão LTS x64 MSI
+  download_url: https://nodejs.org/dist/v20.12.2/node-v20.12.2-x64.msi 
+  install_method: msi
+  # Argumentos para instalação silenciosa via msiexec
+  install_args: /qn /norestart 
+  hash: HASH_PENDENTE_VERIFICACAO
+  hash_algorithm: sha256
+  verify_actions:
+    - type: command_exists
+      name: node
+    - type: command_exists
+      name: npm
+
+Python:
+  category: Runtimes
+  description: Linguagem de programação Python 3.12
+  download_url: https://www.python.org/ftp/python/3.12.2/python-3.12.2-amd64.exe
+  install_method: exe
+  install_args: /quiet InstallAllUsers=1 PrependPath=1 Include_test=0
+  hash: HASH_PENDENTE_VERIFICACAO
+  hash_algorithm: sha256
+  verify_actions:
+    - type: command_exists
+      name: python
+    - type: command_exists
+      name: pip

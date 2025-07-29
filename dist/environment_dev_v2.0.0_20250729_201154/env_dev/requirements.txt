@@ -1,0 +1,5 @@
+requests
+pyyaml
+PyQt5>=5.15.0
+# PyQt5 para interface gráfica moderna (alternativa ao Tkinter)
+# Adicionar outras dependências conforme necessário

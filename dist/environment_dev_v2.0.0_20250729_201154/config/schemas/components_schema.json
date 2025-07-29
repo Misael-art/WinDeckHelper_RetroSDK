@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Components Configuration Schema",
+  "version": "2.0",
+  "type": "object",
+  "properties": {
+    "_metadata": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "format": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "version"
+      ]
+    },
+    "components": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-zA-Z0-9_-]+$": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "download_url": {
+              "type": "string",
+              "pattern": "^https?://.+"
+            },
+            "checksum": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "algorithm": {
+                  "type": "string",
+                  "enum": [
+                    "md5",
+                    "sha1",
+                    "sha256",
+                    "sha512"
+                  ]
+                }
+              },
+              "required": [
+                "value",
+                "algorithm"
+              ]
+            },
+            "install_method": {
+              "type": "string",
+              "enum": [
+                "executable",
+                "msi",
+                "archive",
+                "script"
+              ]
+            },
+            "dependencies": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "conflicts": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "download_url",
+            "checksum",
+            "install_method"
+          ]
+        }
+      }
+    }
+  },
+  "required": [
+    "_metadata",
+    "components"
+  ]
+}

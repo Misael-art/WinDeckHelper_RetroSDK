@@ -1,0 +1,77 @@
+;------------------------------------------------------------------------------
+;AMD Audio CoProcessor extention file : amdacpbusext.inf
+;
+;Copyright(c) 2021 Advanced Micro Devices, Inc.All rights reserved
+;------------------------------------------------------------------------------
+[Version]
+Signature = "$WINDOWS NT$"
+Class = Extension
+ClassGuid = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
+Provider = %ManufacturerName%
+ExtensionId = {491BC072-CC32-40B2-A29E-C1C06491DA4A}
+DriverVer = 01/03/2023,6.0.0.43
+CatalogFile = amdacpbusext.cat
+PnpLockdown=1
+
+[SourceDisksNames]
+1 = %DiskName%
+
+[SourceDisksFiles]
+acpcfg0001.dat = 1
+acpcfg0002.dat = 1
+acpcfg0003.dat = 1
+
+[DestinationDirs]
+AcpConfig.ACP_6_0_CopyList = 13
+AcpConfig.ACP_6_2_CopyList = 13
+AcpConfig.ACP_6_F_CopyList = 13
+
+[AcpConfig.ACP_6_0_CopyList]
+acpcfg0001.dat
+
+[AcpConfig.ACP_6_2_CopyList]
+acpcfg0002.dat
+
+[AcpConfig.ACP_6_F_CopyList]
+acpcfg0003.dat
+
+;*****************************************
+; Install Section
+;*****************************************
+[Manufacturer]
+%ManufacturerName% = AMD, NTamd64
+
+[AMD.NTamd64]
+%amdacpbus.DeviceDesc% = ACP_6_0, PCI\VEN_1022&DEV_15E2&REV_60
+%amdacpbus.DeviceDesc% = ACP_6_2, PCI\VEN_1022&DEV_15E2&REV_62
+%amdacpbus.DeviceDesc% = ACP_6_F, PCI\VEN_1022&DEV_15E2&REV_6F
+
+[ACP_6_0.NT]
+CopyFiles = AcpConfig.ACP_6_0_CopyList
+AddReg = ACP_6_0.AddReg
+
+[ACP_6_2.NT]
+CopyFiles = AcpConfig.ACP_6_2_CopyList
+AddReg = ACP_6_2.AddReg
+
+[ACP_6_F.NT]
+CopyFiles = AcpConfig.ACP_6_F_CopyList
+AddReg = ACP_6_F.AddReg
+
+[ACP_6_0.AddReg]
+HKR,,AcpConfigDatPath,,"%13%\acpcfg0001.dat"
+
+[ACP_6_2.AddReg]
+HKR,,AcpConfigDatPath,,"%13%\acpcfg0002.dat"
+
+[ACP_6_F.AddReg]
+HKR,,AcpConfigDatPath,,"%13%\acpcfg0003.dat"
+
+[Strings]
+ManufacturerName = "AMD"
+amdacpbus.DeviceDesc = "AMD Audio CoProcessor Extension"
+DiskName = "AMD Audio CoProcessor Extension Installation Disk"
+REG_BINARY = 0x00000001
+REG_DWORD = 0x00010001
+REG_MULTI_SZ = 0x00010000
+REG_MULTI_SZ_APPEND = 0x00010008

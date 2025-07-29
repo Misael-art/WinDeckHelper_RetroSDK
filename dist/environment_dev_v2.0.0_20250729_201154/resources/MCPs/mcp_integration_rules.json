@@ -1,0 +1,85 @@
+{
+  "rules": [
+    {
+      "mcp": "Figma-Context-MCP",
+      "use_cases": [
+        {
+          "trigger": "User mentions design or Figma",
+          "action": "Fetch current Figma context",
+          "priority": 1
+        }
+      ]
+    },
+    {
+      "mcp": "magic-mcp",
+      "use_cases": [
+        {
+          "trigger": "Code generation/refactoring task",
+          "action": "Invoke code magic tools",
+          "priority": 1,
+          "fallback": "Standard code completion"
+        }
+      ]
+    },
+    {
+      "mcp": "mcp-playwright",
+      "use_cases": [
+        {
+          "trigger": "Testing related task",
+          "action": "Generate test scripts",
+          "priority": 1
+        }
+      ]
+    },
+    {
+      "mcp": "mcp-server-neon",
+      "use_cases": [
+        {
+          "trigger": "Environment setup",
+          "action": "Adjust lighting for focus",
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "mcp": "mcp-youtube",
+      "use_cases": [
+        {
+          "trigger": "Video reference needed",
+          "action": "Search relevant tutorials",
+          "priority": 1
+        }
+      ]
+    },
+    {
+      "mcp": "Software-planning-mcp",
+      "use_cases": [
+        {
+          "trigger": "Task management",
+          "action": "Update project timeline",
+          "priority": 1
+        }
+      ]
+    },
+    {
+      "mcp": "supabase-mcp-server",
+      "use_cases": [
+        {
+          "trigger": "Data persistence needed",
+          "action": "Handle database operations",
+          "priority": 1,
+          "fallback": "Local storage"
+        }
+      ]
+    }
+  ],
+  "fallback_strategy": {
+    "max_retries": 2,
+    "timeout": 5000,
+    "default_fallback": "Proceed without MCP"
+  },
+  "monitoring": {
+    "health_check_interval": 300000,
+    "performance_threshold": 2000
+  }
+}

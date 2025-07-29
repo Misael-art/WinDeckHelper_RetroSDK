@@ -1,0 +1,38 @@
+																																			; AMD Graphics Driver Component INF
+;   Version Pairing for UWP Applets
+;
+; Copyright(C) AMD 2007-2018
+;-----------------------------------------------
+
+[Version]
+Signature="$Windows NT$"
+Provider=%ATI%
+ClassGUID={5c4c3332-344d-483c-8739-259e934c9cc8}
+Class=SoftwareComponent
+DriverVer=06/21/2022, 31.2240.0.0
+;;LayoutFile=layout.inf
+CatalogFile=UWPPair.CAT
+PnpLockdown=1
+
+[Manufacturer]
+%ATI% = ATI.Mfg, NTamd64.10.0
+
+[ATI.Mfg.NTamd64.10.0]
+%ExtendedGraphics%=ExtendedGraphics, SWC\VID1002&PID0001
+
+[Strings]
+ATI          = "Advanced Micro Devices, Inc."
+ExtendedGraphics = "AMD-UWP Version Control"
+
+[ExtendedGraphics.NT.Services]
+AddService = ,2
+
+[ExtendedGraphics.NT]
+
+[ExtendedGraphics.NT.Software]
+AddSoftware=AMDRadeonsettings,,AMDRadeonsettingsSoftware
+
+[AMDRadeonsettingsSoftware]
+SoftwareType=2
+SoftwareID=pfn://AdvancedMicroDevicesInc-2.AMDRadeonSoftware_0a9344xs7nr4m
+SoftwareVersion=10.22.40001.0

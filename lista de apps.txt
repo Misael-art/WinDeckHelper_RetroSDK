@@ -1,0 +1,78 @@
+Gerenciamento de Jogos e Emuladores
+Heroic Games Launcher : Cliente alternativo para jogos da Epic Games Store, GOG e outros serviços, compatível com o Steam Deck.
+Lutris : Gerenciador de jogos que simplifica a instalação e execução de jogos Windows/Linux no Steam Deck.
+ProtonDB : Comunidade que fornece patches e configurações para rodar jogos Windows no Steam Deck via Proton.
+RetroArch : Frontend universal para emuladores, suportando consoles retro como NES, SNES, Genesis, etc.
+PCSX2 : Emulador PS2 altamente compatível, que pode ser executado no Steam Deck via Proton.
+Dolphin Emulator : Emulador GameCube/Wii com excelente desempenho no Steam Deck.
+Cemu : Emulador Wii U que pode ser usado no Steam Deck com ajustes específicos.
+PPSSPP : Emulador PSP leve e eficiente, ideal para o Steam Deck.
+Otimização de Desempenho
+GOverlay : Overlay para monitorar FPS, uso de GPU/CPU e aplicar ajustes gráficos em tempo real.
+MangoHud : HUD para monitoramento de desempenho e captura de métricas durante os jogos.
+GameMode : Ferramenta que ajusta automaticamente as configurações do sistema para maximizar o desempenho dos jogos.
+Powertop : Utilitário para otimizar o consumo de energia e melhorar a vida útil da bateria.
+Ferramentas de Sincronização
+Rclone : Ferramenta para sincronizar arquivos com serviços de nuvem como Google Drive, OneDrive, etc.
+Syncthing : Alternativa descentralizada para sincronização de arquivos entre dispositivos.
+Personalização e Integração
+Decky Loader : Plugin para personalizar o Steam Deck, permitindo adicionar novas funcionalidades ao sistema.
+KDE Plasma Mobile : Interface alternativa para o Steam Deck, oferecendo maior flexibilidade na organização do desktop.
+2. Utilitários para Ambientes Windows Voltados a Jogos e Emuladores
+Gerenciamento de Jogos e Emuladores
+Steam : Plataforma de distribuição de jogos mais popular, essencial para qualquer setup voltado a jogos.
+Epic Games Store : Outra loja de jogos com títulos exclusivos e ofertas frequentes.
+GOG Galaxy : Loja de jogos DRM-free com suporte a múltiplas plataformas.
+RetroArch : Frontend universal para emuladores, similar ao Lutris, mas para Windows.
+LaunchBox : Gerenciador de jogos retro com interface amigável e vasto suporte a emuladores.
+PCSX2 : Emulador PS2 para Windows, com excelente compatibilidade.
+Dolphin Emulator : Emulador GameCube/Wii para Windows, com recursos avançados.
+RPCS3 : Emulador PS3 para Windows, com suporte crescente a jogos.
+Citra : Emulador 3DS leve e eficiente.
+Yuzu : Emulador Switch para Windows, ideal para títulos modernos.
+Otimização de Desempenho
+MSI Afterburner : Ferramenta para overclock e monitoramento de GPUs.
+RivaTuner Statistics Server (RTSS) : Componente do MSI Afterburner para limitar FPS e monitorar desempenho.
+ThrottleStop : Utilitário para gerenciar o desempenho da CPU e evitar throttling térmico.
+Process Lasso : Ferramenta para otimizar prioridades de processos e melhorar o desempenho do sistema.
+Game Fire : Otimizador de jogos que desativa processos desnecessários durante o jogo.
+Captura e Streaming
+OBS Studio : Ferramenta para captura, gravação e streaming de jogos.
+NVIDIA ShadowPlay : Gravador integrado às placas NVIDIA, ideal para capturar gameplay sem impactar o desempenho.
+AMD ReLive : Equivalente ao ShadowPlay para placas AMD.
+ShareX : Ferramenta para captura de tela e GIFs, útil para criar tutoriais e guias.
+Emulação de Retro Consoles
+BizHawk : Emulador multiplataforma com suporte a ferramentas de TAS (Tool-Assisted Speedrunning).
+Mesen : Emulador NES/SNES com precisão máxima, ideal para speedrunners.
+mGBA : Emulador Game Boy Advance leve e preciso.
+VBA-M : Emulador Game Boy/Game Boy Advance com recursos avançados.
+Mednafen : Emulador multiplataforma com foco em precisão e baixa latência.
+Ferramentas de Modding
+Mod Organizer 2 : Gerenciador de mods para jogos como Skyrim, Fallout e outros.
+CKAN (Comprehensive Kerbal Archive Network) : Gerenciador de mods para Kerbal Space Program.
+Nexus Mods Manager : Ferramenta para baixar e gerenciar mods de jogos populares.
+Ferramentas de Backup e Sincronização
+FreeFileSync : Ferramenta para sincronizar arquivos entre pastas ou drives.
+WinDirStat : Visualizador de uso de disco para identificar arquivos desnecessários e liberar espaço.
+CCleaner : Ferramenta para limpar arquivos temporários e otimizar o sistema.
+Otimização de Sistema
+BloatyNosy : Remove bloatware e otimiza o desempenho do Windows.
+Optimizer : Ferramenta leve para ajustar configurações do Windows e remover software indesejado.
+WinaeroTweaker : Personaliza e ajusta o Windows com opções avançadas.
+Ferramentas de Rede
+NetLimiter : Monitora e controla o uso de rede por aplicativos, útil para streaming e downloads.
+Wireshark : Analisador de pacotes de rede para diagnóstico avançado.
+Ferramentas de Áudio
+Voicemeeter : Mixer virtual de áudio para configurar entradas/saídas de som.
+Equalizer APO : Equalizador de sistema para ajustar o áudio do Windows.
+Virtual Audio Cable : Cria conexões virtuais de áudio entre aplicativos.
+Ferramentas de Disco e Partição
+DualBootPartitionManager : Gerencia partições de disco para sistemas dual-boot.
+Grub2Win : Gerenciador de boot para sistemas dual-boot com Linux e Windows.
+3. Ferramentas Comuns entre Steam Deck e Windows
+Algumas ferramentas são úteis tanto para o Steam Deck quanto para ambientes Windows:
+
+7-Zip : Ferramenta de compressão/descompressão para ROMs, mods e backups.
+Notepad++ : Editor de texto leve e versátil para scripts e configurações.
+Revo Uninstaller : Remove completamente programas e resíduos do sistema.
+HardLinkShellExt_X64 : Extensão para criar links físicos entre arquivos/diretórios.

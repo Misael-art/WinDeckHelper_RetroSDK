@@ -1,0 +1,410 @@
+================================================================================
+RELATÓRIO DE DIAGNÓSTICO DE COMPONENTES
+================================================================================
+Data/Hora: 2025-03-31T16:24:08.349882
+Total de componentes: 63
+Componentes instalados: 4
+Componentes com problemas: 29
+================================================================================
+
+DETALHES DOS COMPONENTES:
+
+--------------------------------------------------------------------------------
+Nome: 7-Zip
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+--------------------------------------------------------------------------------
+Nome: BloatyNosy
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+Problemas detectados:
+  - Diretório de extração não encontrado: C:\Program Files\BloatyNosy
+
+--------------------------------------------------------------------------------
+Nome: Boost
+Instalado: Não
+
+--------------------------------------------------------------------------------
+Nome: Buckaroo
+Instalado: Não
+
+--------------------------------------------------------------------------------
+Nome: CMake
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+--------------------------------------------------------------------------------
+Nome: Clang
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+--------------------------------------------------------------------------------
+Nome: Conan
+Instalado: Não
+
+--------------------------------------------------------------------------------
+Nome: Cursor IDE
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+Problemas detectados:
+  - URL legada de download indisponível: https://download.cursor.sh/windows/Cursor%20Setup.exe
+
+--------------------------------------------------------------------------------
+Nome: CursorVip
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+Problemas detectados:
+  - URL legada de download indisponível: https://download.cursor.sh/windows-vip/Cursor%20Setup.exe
+
+--------------------------------------------------------------------------------
+Nome: Cygwin
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+--------------------------------------------------------------------------------
+Nome: Dear ImGui
+Instalado: Não
+
+--------------------------------------------------------------------------------
+Nome: DirectX
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+--------------------------------------------------------------------------------
+Nome: Docker
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+--------------------------------------------------------------------------------
+Nome: Driver BTRFS
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+--------------------------------------------------------------------------------
+Nome: DualBootPartitionManager
+Instalado: Sim
+Caminho de instalação: C:\Users\misae\AppData\Local\DualBootPartitionManager
+
+Detalhes de verificação:
+  - Diretório: C:\Users\misae\AppData\Local\DualBootPartitionManager - Encontrado
+
+--------------------------------------------------------------------------------
+Nome: Emscripten
+Instalado: Não
+
+Problemas detectados:
+  - Diretório de extração não encontrado: C:\Program Files\emsdk
+
+--------------------------------------------------------------------------------
+Nome: GbdevKit
+Instalado: Não
+
+Problemas detectados:
+  - Diretório de extração não encontrado: C:\RetroDev\gbdk-2020
+
+--------------------------------------------------------------------------------
+Nome: Gendev
+Instalado: Sim
+Caminho de instalação: C:\RetroDev\gendev
+
+Detalhes de verificação:
+  - Diretório: C:\RetroDev\gendev - Encontrado
+
+--------------------------------------------------------------------------------
+Nome: Grub2Win
+Instalado: Sim
+Caminho de instalação: C:\Users\misae\AppData\Local\Grub2Win
+
+Detalhes de verificação:
+  - Diretório: C:\Users\misae\AppData\Local\Grub2Win - Encontrado
+
+--------------------------------------------------------------------------------
+Nome: HardLinkShellExt_X64
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+--------------------------------------------------------------------------------
+Nome: Hunter
+Instalado: Não
+
+--------------------------------------------------------------------------------
+Nome: K-Lite Codec Pack
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+--------------------------------------------------------------------------------
+Nome: LM Studio
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+Problemas detectados:
+  - URL legada de download indisponível: https://lmstudio.ai/downloads/windows/LMStudio-Setup.exe
+
+--------------------------------------------------------------------------------
+Nome: Make
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+Problemas detectados:
+  - Diretório de extração não encontrado: C:\Program Files\GnuWin32
+
+--------------------------------------------------------------------------------
+Nome: MemReduct
+Instalado: Não
+
+Detalhes de verificação:
+  - Arquivo: C:\Program Files\memreduct\memreduct.exe - NÃO ENCONTRADO
+  - Registro: HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Mem Reduct_is1 - INVÁLIDO
+
+Problemas detectados:
+  - Arquivo de verificação não encontrado: C:\Program Files\memreduct\memreduct.exe
+  - Chave de registro não encontrada ou inválida: HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Mem Reduct_is1
+
+--------------------------------------------------------------------------------
+Nome: Meson
+Instalado: Não
+
+--------------------------------------------------------------------------------
+Nome: MinGW-w64
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+Problemas detectados:
+  - Diretório de extração não encontrado: C:\Program Files\mingw-w64
+
+--------------------------------------------------------------------------------
+Nome: Ninja
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+Problemas detectados:
+  - Diretório de extração não encontrado: C:\Program Files\Ninja
+
+--------------------------------------------------------------------------------
+Nome: Notepad++
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+--------------------------------------------------------------------------------
+Nome: OBS Studio
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+--------------------------------------------------------------------------------
+Nome: Ollama
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+Problemas detectados:
+  - Diretório de extração não encontrado: C:\Program Files\Ollama
+
+--------------------------------------------------------------------------------
+Nome: OpenAL
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+Problemas detectados:
+  - URL legada de download indisponível: https://www.openal.org/downloads/oalinst.exe
+
+--------------------------------------------------------------------------------
+Nome: Optimizer
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+--------------------------------------------------------------------------------
+Nome: PNG
+Instalado: Não
+
+--------------------------------------------------------------------------------
+Nome: PVSnesLib
+Instalado: Não
+
+Problemas detectados:
+  - Diretório de extração não encontrado: C:\RetroDev\pvsneslib
+
+--------------------------------------------------------------------------------
+Nome: PhysX
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+--------------------------------------------------------------------------------
+Nome: Revo Uninstaller
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+--------------------------------------------------------------------------------
+Nome: Rust
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+--------------------------------------------------------------------------------
+Nome: SDL2
+Instalado: Não
+
+--------------------------------------------------------------------------------
+Nome: SDL2-TTF
+Instalado: Não
+
+--------------------------------------------------------------------------------
+Nome: SGDK
+Instalado: Não
+
+Problemas detectados:
+  - Diretório de extração não encontrado: C:\RetroDev\SGDK
+
+--------------------------------------------------------------------------------
+Nome: SMSDevKit
+Instalado: Não
+
+Problemas detectados:
+  - Diretório de extração não encontrado: C:\RetroDev\devkitSMS
+
+--------------------------------------------------------------------------------
+Nome: Spack
+Instalado: Não
+
+Problemas detectados:
+  - Diretório de extração não encontrado: C:\Program Files\spack
+
+--------------------------------------------------------------------------------
+Nome: TCC
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+Problemas detectados:
+  - URL legada de download indisponível: https://download.savannah.gnu.org/releases/tinycc/tcc-0.9.27-win64-bin.zip
+  - Diretório de extração não encontrado: C:\Program Files	cc
+
+--------------------------------------------------------------------------------
+Nome: Trae
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+Problemas detectados:
+  - URL legada de download indisponível: https://github.com/TraeAI/trae/releases/latest/download/trae-windows-x64.zip
+  - Diretório de extração não encontrado: C:\Program Files\Trae
+
+--------------------------------------------------------------------------------
+Nome: UE3Redist
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+Problemas detectados:
+  - URL legada de download indisponível: https://download.epicgames.com/Builds/UnrealEngineLauncher/Installers/UE3Redist.exe
+
+--------------------------------------------------------------------------------
+Nome: UE4PrereqSetup_x64
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+Problemas detectados:
+  - URL legada de download indisponível: https://download.epicgames.com/Builds/UnrealEngineLauncher/Installers/UE4PrereqSetup_x64.exe
+
+--------------------------------------------------------------------------------
+Nome: VLC Media Player
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+--------------------------------------------------------------------------------
+Nome: Visual Studio Build Tools
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+--------------------------------------------------------------------------------
+Nome: VisualCppRedist_AIO
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+--------------------------------------------------------------------------------
+Nome: WLA-DX
+Instalado: Não
+
+Problemas detectados:
+  - Diretório de extração não encontrado: C:\RetroDev\wla-dx
+
+--------------------------------------------------------------------------------
+Nome: WSL
+Instalado: Não
+
+--------------------------------------------------------------------------------
+Nome: WinaeroTweaker
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+Problemas detectados:
+  - Diretório de extração não encontrado: C:\Program Files\WinaeroTweaker
+
+--------------------------------------------------------------------------------
+Nome: ZLIB
+Instalado: Não
+
+--------------------------------------------------------------------------------
+Nome: Zig
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+Problemas detectados:
+  - Diretório de extração não encontrado: C:\Program Files\zig
+
+--------------------------------------------------------------------------------
+Nome: libSFX
+Instalado: Não
+
+Problemas detectados:
+  - Diretório de extração não encontrado: C:\RetroDev\libSFX
+
+--------------------------------------------------------------------------------
+Nome: vcpkg
+Instalado: Não
+
+Problemas detectados:
+  - Diretório de extração não encontrado: C:\Program Files\vcpkg
+
+--------------------------------------------------------------------------------
+Nome: windowsdesktop-runtime
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+Problemas detectados:
+  - URL legada de download indisponível: https://download.visualstudio.microsoft.com/download/pr/85473c45-8d91-48cb-ab41-86ec7abc1000/83cd0c82f0cde9a566bae4245ea5a65b/windowsdesktop-runtime-6.0.26-win-x64.exe
+
+--------------------------------------------------------------------------------
+Nome: GloverWindows
+Instalado: Sim
+Caminho de instalação: C:\Users\misae\AppData\Local\GloverWindows
+
+Detalhes de verificação:
+  - Diretório: C:\Users\misae\AppData\Local\GloverWindows - Encontrado
+
+--------------------------------------------------------------------------------
+Nome: XNA Framework
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+Problemas detectados:
+  - URL legada de download indisponível: https://download.microsoft.com/download/E/C/1/EC1B4309-C3A4-446B-9642-1845A705A651/xnafx40_redist.msi
+
+--------------------------------------------------------------------------------
+Nome: DotNet SDK 8
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+Problemas detectados:
+  - URL legada de download indisponível: https://download.visualstudio.microsoft.com/download/pr/85473c45-8d91-48cb-ab41-86ec7abc1000/83cd0c82f0cde9a566bae4245ea5a65b/dotnet-sdk-8.0.406-win-x64.exe
+
+--------------------------------------------------------------------------------
+Nome: Zulu JDK 23
+Instalado: Não
+Observação: Componente usa formato legado de configuração
+
+Problemas detectados:
+  - URL legada de download indisponível: https://cdn.azul.com/zulu/bin/zulu23.30.13-ca-jdk23.0.1-win_x64.msi
+
+--------------------------------------------------------------------------------
+Nome: Vulkan SDK
+Instalado: Não
+Observação: Componente usa formato legado de configuração

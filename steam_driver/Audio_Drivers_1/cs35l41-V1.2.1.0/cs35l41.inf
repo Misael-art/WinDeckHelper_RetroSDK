@@ -1,0 +1,102 @@
+; SPDX-License-Identifier: GPL-2.0
+
+;
+; cs35l41.inf -- CS35L41 SoC audio driver information
+;
+; Copyright 2022 Novus Labs
+;
+; Author: Ayal Lutwak <ayallutwak@novuslabs.com>
+;         Jakob Nelson <jakobnelson@novuslabs.com>
+;
+; This program is free software; you can redistribute itand /or modify
+; it under the terms of the GNU General Public License version 2 as
+; published by the Free Software Foundation.
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=Media
+ClassGuid={4d36e96c-e325-11ce-bfc1-08002be10318}
+Provider=%ProviderName%
+CatalogFile=cs35l41.cat
+DriverVer = 10/07/2022,1.2.1.0
+PnpLockdown=1
+
+[DestinationDirs]
+DefaultDestDir = 13
+cs35l41_Device_CoInstaller_CopyFiles = 11
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+cs35l41.sys                = 1
+cs35l41-dsp1-spk-prot.wmfw = 1
+cs35l41-dsp1-spk-prot.bin  = 1
+;
+
+
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName%=Standard,NTamd64
+
+[Standard.NTamd64]
+%cs35l41.DeviceDesc%=cs35l41_Device, ACPI\VLV1776
+
+[cs35l41_Device.NT]
+CopyFiles=Drivers_Dir
+AddReg = cs35l41.AddReg
+
+[Drivers_Dir]
+cs35l41.sys
+cs35l41-dsp1-spk-prot.wmfw
+cs35l41-dsp1-spk-prot.bin
+
+;-------------- Service installation
+[cs35l41_Device.NT.Services]
+AddService = cs35l41,%SPSVCINST_ASSOCSERVICE%, cs35l41_Service_Inst
+
+; -------------- cs35l41 driver install sections
+[cs35l41_Service_Inst]
+DisplayName    = %cs35l41.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %13%\cs35l41.sys
+
+[cs35l41.AddReg]
+HKR,,FirmwarePath,,"%13%"
+HKR,,AmpGain,0x00010001,17
+
+;
+;--- cs35l41_Device Coinstaller installation ------
+;
+
+[cs35l41_Device.NT.CoInstallers]
+AddReg=cs35l41_Device_CoInstaller_AddReg
+CopyFiles=cs35l41_Device_CoInstaller_CopyFiles
+
+[cs35l41_Device_CoInstaller_AddReg]
+;
+
+
+[cs35l41_Device_CoInstaller_CopyFiles]
+;
+
+
+[cs35l41_Device.NT.Wdf]
+KmdfService =  cs35l41, cs35l41_wdfsect
+[cs35l41_wdfsect]
+KmdfLibraryVersion = 1.15
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+ProviderName="Novus Labs"
+ManufacturerName="Cirrus"
+DiskName = "cs35l41 Installation Disk"
+cs35l41.DeviceDesc = "cs35l41 Device"
+cs35l41.SVCDESC = "cs35l41 Service"

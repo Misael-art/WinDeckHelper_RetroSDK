@@ -1,0 +1,203 @@
+# Ferramentas e Emuladores para Steam Deck (Linux)
+
+Heroic Games Launcher (Flatpak):
+  category: Game Launchers (Steam Deck)
+  description: Launcher alternativo para Epic Games, GOG (via Flatpak)
+  install_method: script 
+  script_actions:
+    - type: executable # Assume flatpak está no PATH
+      command: flatpak 
+      args: ["install", "--user", "--noninteractive", "flathub", "com.heroicgameslauncher.hgl"]
+  verify_actions:
+    - type: command_output 
+      command: "flatpak info com.heroicgameslauncher.hgl"
+      expected_contains: "ID: com.heroicgameslauncher.hgl" # Verifica se o pacote está instalado
+
+Lutris (Flatpak):
+  category: Game Launchers (Steam Deck)
+  description: Gerenciador de jogos para várias fontes (via Flatpak)
+  install_method: script
+  script_actions:
+    - type: executable
+      command: flatpak
+      args: ["install", "--user", "--noninteractive", "flathub", "net.lutris.Lutris"]
+  verify_actions:
+    - type: command_output
+      command: "flatpak info net.lutris.Lutris"
+      expected_contains: "ID: net.lutris.Lutris"
+
+RetroArch (Flatpak):
+  category: Emulators (Steam Deck)
+  description: Frontend universal para emuladores (via Flatpak)
+  install_method: script
+  script_actions:
+    - type: executable
+      command: flatpak
+      args: ["install", "--user", "--noninteractive", "flathub", "org.libretro.RetroArch"]
+  verify_actions:
+    - type: command_output
+      command: "flatpak info org.libretro.RetroArch"
+      expected_contains: "ID: org.libretro.RetroArch"
+
+PCSX2 (Flatpak):
+  category: Emulators (Steam Deck)
+  description: Emulador de PlayStation 2 (via Flatpak)
+  install_method: script
+  script_actions:
+    - type: executable
+      command: flatpak
+      args: ["install", "--user", "--noninteractive", "flathub", "net.pcsx2.PCSX2"]
+  verify_actions:
+    - type: command_output
+      command: "flatpak info net.pcsx2.PCSX2"
+      expected_contains: "ID: net.pcsx2.PCSX2"
+
+Dolphin Emulator (Flatpak):
+  category: Emulators (Steam Deck)
+  description: Emulador de GameCube e Wii (via Flatpak)
+  install_method: script
+  script_actions:
+    - type: executable
+      command: flatpak
+      args: ["install", "--user", "--noninteractive", "flathub", "org.DolphinEmu.dolphin-emu"]
+  verify_actions:
+    - type: command_output
+      command: "flatpak info org.DolphinEmu.dolphin-emu"
+      expected_contains: "ID: org.DolphinEmu.dolphin-emu"
+
+Cemu (AppImage):
+  category: Emulators (Steam Deck)
+  description: Emulador de Wii U (via AppImage)
+  # Link para AppImage x64
+  download_url: https://github.com/cemu-project/Cemu/releases/download/v2.0-79/Cemu-2.0-79-x86_64.AppImage
+  install_method: download # Apenas baixa
+  download_dir: '${env:HOME}/Applications' # Diretório comum para AppImages
+  # Pós-instalação manual: tornar executável (chmod +x)
+  post_install_message: "Cemu AppImage baixado para ~/Applications. Torne-o executável (chmod +x) e execute."
+  hash: HASH_PENDENTE_VERIFICACAO
+  hash_algorithm: sha256
+  verify_actions:
+    - type: file_exists
+      path: '${env:HOME}/Applications/Cemu-2.0-79-x86_64.AppImage' # Verifica o download
+
+PPSSPP (Flatpak):
+  category: Emulators (Steam Deck)
+  description: Emulador de PSP (via Flatpak)
+  install_method: script
+  script_actions:
+    - type: executable
+      command: flatpak
+      args: ["install", "--user", "--noninteractive", "flathub", "org.ppsspp.PPSSPP"]
+  verify_actions:
+    - type: command_output
+      command: "flatpak info org.ppsspp.PPSSPP"
+      expected_contains: "ID: org.ppsspp.PPSSPP"
+
+GOverlay (Flatpak):
+  category: Optimization (Steam Deck)
+  description: Overlay para monitoramento e ajustes gráficos (via Flatpak)
+  install_method: script
+  script_actions:
+    - type: executable
+      command: flatpak
+      args: ["install", "--user", "--noninteractive", "flathub", "com.benjamimjacob.GOverlay"]
+  verify_actions:
+    - type: command_output
+      command: "flatpak info com.benjamimjacob.GOverlay"
+      expected_contains: "ID: com.benjamimjacob.GOverlay"
+
+MangoHud:
+  category: Optimization (Steam Deck)
+  description: HUD para monitoramento de desempenho em jogos
+  # Instalação via pacman (requer sudo)
+  install_method: script 
+  script_actions:
+    - type: executable
+      # Este comando provavelmente falhará sem sudo
+      command: sudo 
+      args: ["pacman", "-S", "--noconfirm", "mangohud"] 
+  post_install_message: "MangoHud instalado via pacman. Pode requerer configuração adicional."
+  verify_actions:
+    - type: command_exists # Verifica se o comando está disponível
+      name: mangohud
+
+GameMode:
+  category: Optimization (Steam Deck)
+  description: Otimiza o sistema para performance em jogos
+  # Instalação via pacman (requer sudo)
+  install_method: script
+  script_actions:
+    - type: executable
+      command: sudo
+      args: ["pacman", "-S", "--noconfirm", "gamemode"]
+  verify_actions:
+    - type: command_exists
+      name: gamemoded # Verifica o daemon
+
+Powertop:
+  category: Optimization (Steam Deck)
+  description: Utilitário para otimização de consumo de energia
+  # Instalação via pacman (requer sudo)
+  install_method: script
+  script_actions:
+    - type: executable
+      command: sudo
+      args: ["pacman", "-S", "--noconfirm", "powertop"]
+  verify_actions:
+    - type: command_exists
+      name: powertop
+
+Rclone:
+  category: Sync Tools (Steam Deck)
+  description: Ferramenta para sincronizar arquivos com serviços de nuvem
+  # Instalação via pacman (requer sudo)
+  install_method: script
+  script_actions:
+    - type: executable
+      command: sudo
+      args: ["pacman", "-S", "--noconfirm", "rclone"]
+  verify_actions:
+    - type: command_exists
+      name: rclone
+
+Syncthing:
+  category: Sync Tools (Steam Deck)
+  description: Sincronização de arquivos P2P descentralizada
+  # Instalação via pacman (requer sudo)
+  install_method: script
+  script_actions:
+    - type: executable
+      command: sudo
+      args: ["pacman", "-S", "--noconfirm", "syncthing"]
+  verify_actions:
+    - type: command_exists
+      name: syncthing
+
+Decky Loader:
+  category: Customization (Steam Deck)
+  description: Plugin loader para adicionar funcionalidades à interface do Steam Deck
+  install_method: script
+  # O comando oficial baixa e executa um script. Requer conexão com internet.
+  script_actions:
+    - type: executable
+      command: /bin/bash # Usar bash explicitamente
+      args: 
+        - -c 
+        - "curl -L https://github.com/SteamDeckHomebrew/decky-installer/releases/latest/download/install.sh | sh"
+  post_install_message: "Decky Loader instalado. Reinicie o Steam Deck para acessá-lo no menu '...'"
+  verify_actions:
+    # Verifica a existência do diretório principal de plugins do Decky
+    - type: directory_exists
+      path: '${env:HOME}/homebrew/plugins'
+
+KDE Plasma Mobile Info:
+  category: Customization (Steam Deck)
+  description: Interface de desktop alternativa (Instalação manual complexa)
+  install_method: none
+  post_install_message: "KDE Plasma Mobile é um ambiente de desktop alternativo. Sua instalação no Steam Deck é um processo avançado e manual, geralmente não recomendado para usuários comuns. Pesquise guias específicos se desejar prosseguir."
+
+ProtonDB Notes:
+  category: Information (Steam Deck)
+  description: Site da comunidade para compatibilidade de jogos Proton (Não instalável)
+  install_method: none # Indica que não há instalação
+  post_install_message: "Acesse ProtonDB (https://www.protondb.com/) para verificar a compatibilidade e configurações de jogos no Steam Deck."

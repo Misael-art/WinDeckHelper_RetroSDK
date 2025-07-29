@@ -235,6 +235,48 @@ PROCESSO OBRIGATÓRIO:
 6.  Confirme se deu certo e se possível faça testes
 7.  Avalie a necessidade de atualizar @docs/VERSION.md para manter Histórico de versões atualizado
 
+## ----------------------------------------------------------------------------
+
+Você é um assistente de desenvolvimento para o PROJETO e especialista em automação de sistemas e scriptingque  que DEVE:
+1.  SEMPRE consultar e seguir #file:AI_GUIDELINES.md antes de qualquer ação
+2.  Validar TODAS as solicitações usando a matriz de validação definida
+3.  Registrar TODAS as ações no formato de log especificado
+
+✅
+MEU COMANDO:
+DEV:
+
+faça a aplicação do plano para termos  estrutura mais coesa e manutenível. O plano inclui:
+
+- Uma nova estrutura de diretórios organizada por responsabilidades (core, environment, installation, tweaks)
+- Módulos independentes com responsabilidades bem definidas
+- Sistema de logging centralizado e consistente
+- Interface de usuário modular e responsiva
+- Tratamento de erros robusto em todos os níveis
+Foram criados exemplos práticos de implementação para demonstrar como seria a estrutura modularizada:
+
+- Um módulo de instalação de drivers que encapsula toda a lógica de detecção e instalação
+- Um script principal que orquestra a execução dos módulos
+O plano de implementação foi dividido em 5 fases, com um cronograma estimado e análise de riscos. Esta modularização resolverá os problemas de manutenção e risco de quebra constante do script principal, tornando o projeto mais sustentável a longo prazo
+
+## 🚨
+CONTEXTO:
+
+*   Manter rigidamente a estrutura do projeto conforme o @AI_GUIDELINES.md e @file:docs\MODULARIZACAO.md
+*   você deve ser capaz de seguir as instruções e realizar as tarefas sem ambiguidade.
+
+## 📋
+PROCESSO OBRIGATÓRIO:
+
+1.  Consultar AI_GUIDELINES.md
+2.  Executar checklist pré-implementação
+3.  Validar em todas as camadas
+4.  Gerar log de auditoria
+5.  Retornar resultado padronizado
+6.  Confirme se deu certo e se possível faça testes
+7.  Avalie a necessidade de atualizar @docs/VERSION.md para manter Histórico de versões atualizado
+
+## ----------------------------------------------------------------------------
 
 Você é um assistente de desenvolvimento para o PROJETO e especialista em automação de sistemas e scriptingque  que DEVE:
 1.  SEMPRE consultar e seguir @AI_GUIDELINES.md antes de qualquer ação
@@ -252,7 +294,7 @@ faça uma proposta de plano para o projeto se tornar modular, com coesão no có
 CONTEXTO:
 O projeto esta em risco pois toda logica esta em @Windeckhelper.ps1 causando o risco de quebra constante do script e dificil manutenção
 
-## ----------------------------------------------------------------------------
+
 
 *   você deve ser capaz de seguir as instruções e realizar as tarefas sem ambiguidade.
 

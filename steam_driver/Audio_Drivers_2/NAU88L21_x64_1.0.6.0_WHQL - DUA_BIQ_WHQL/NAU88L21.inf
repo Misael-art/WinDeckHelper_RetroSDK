@@ -1,0 +1,105 @@
+;*****************************************
+; NAU88L21.inf
+;*****************************************
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=MEDIA ; TODO: edit Class
+ClassGuid={4d36e96c-e325-11ce-bfc1-08002be10318} ; TODO: edit ClassGuid
+Provider=%ManufacturerName%
+CatalogFile=NAU88L21.cat
+DriverVer = 04/21/2022,1.0.6.0
+
+[DestinationDirs]
+DefaultDestDir = 12
+NAU88L21_Device_CoInstaller_CopyFiles = 11
+
+;*****************************************
+; Class section
+;*****************************************
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+NAU88L21.sys  = 1,,
+
+;*****************************************
+; Install Section
+;*****************************************
+[Manufacturer]
+%ManufacturerName%=AMD,NTx86,NTamd64
+
+
+[AMD.NTx86]
+%NAU88L21.DeviceDesc%=NAU88L21_Device, ACPI\NVTN2020
+
+[AMD.NTamd64]
+%NAU88L21.DeviceDesc%=NAU88L21_Device, ACPI\NVTN2020
+
+[NAU88L21_Device.NT]
+CopyFiles=Drivers_Dir
+
+[Drivers_Dir]
+NAU88L21.sys
+
+[NAU88L21_Device.NT.HW]
+AddReg=NAU88L21_Default_Reg.NT.HW.AddReg
+
+[NAU88L21_Default_Reg.NT.HW.AddReg]
+;;Override Mic Volume & Mic Boost and Mapped to Codec's Register
+HKR, CodecInitializationParameters, MIC_VOL_LEVEL, 0x00010001, 0xA
+HKR, CodecInitializationParameters, MIC_BOOST_LEVEL, 0x00010001, 0x14
+;;Jack Detection & Interrupt Trigger 
+HKR, CodecInitializationParameters, JKDET_PL, 0x00010001, 0
+HKR, CodecInitializationParameters, IRQ_PL, 0x00010001, 0
+;;FLL CLK Source Selection
+HKR, CodecInitializationParameters, FLL_CLK_REF_SRC, 0x00010001, 2
+;;DMIC Clock Speed Selection
+HKR, CodecInitializationParameters, CLK_DMIC_SRC, 0x00010001, 1
+;;DAC Volume
+HKR, CodecInitializationParameters, HS_DAC_DGAIN, 0x00010001, 0xB4B4
+HKR, CodecInitializationParameters, HS_ATT, 0x00010001, 0x3
+;;ADC BIQ
+HKR, CodecInitializationParameters, BIQ0_COF1, 0x00010001, 0x035A
+HKR, CodecInitializationParameters, BIQ0_COF2, 0x00010001, 0x0006
+HKR, CodecInitializationParameters, BIQ0_COF3, 0x00010001, 0xFCAC
+HKR, CodecInitializationParameters, BIQ0_COF4, 0x00010001, 0x0000
+HKR, CodecInitializationParameters, BIQ0_COF5, 0x00010001, 0xFE58
+HKR, CodecInitializationParameters, BIQ0_COF6, 0x00010001, 0x0000
+HKR, CodecInitializationParameters, BIQ0_COF7, 0x00010001, 0x0350
+HKR, CodecInitializationParameters, BIQ0_COF8, 0x00010001, 0x0006
+HKR, CodecInitializationParameters, BIQ0_COF9, 0x00010001, 0xFE58
+HKR, CodecInitializationParameters, BIQ0_COF10, 0x00010001, 0x0008
+
+;*****************************************
+; Service installation
+;*****************************************
+
+[NAU88L21_Device.NT.Services]
+AddService = NAU88L21,%SPSVCINST_ASSOCSERVICE%, NAU88L21_Service_Inst
+
+;*****************************************
+; NAU88L21 driver install sections
+;*****************************************
+
+[NAU88L21_Service_Inst]
+DisplayName    = %NAU88L21.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\NAU88L21.sys
+LoadOrderGroup = Extended Base
+
+[NAU88L21_Device.NT.Wdf]
+KmdfService =  NAU88L21, NAU88L21_wdfsect
+[NAU88L21_wdfsect]
+KmdfLibraryVersion = 1.15
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+ManufacturerName= "Nuvoton"
+ClassName= "I2S Codec Audio Source Disk" 
+DiskName = "NAU88L21 Installation Disk"
+NAU88L21.DeviceDesc = "Nuvoton I2S NAU88L21 Codec Device"
+NAU88L21.SVCDESC = "NAU88L21 Service"

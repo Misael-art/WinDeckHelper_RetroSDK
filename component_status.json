@@ -1,0 +1,648 @@
+{
+  "timestamp": "2025-03-31T16:22:01.881549",
+  "total_components": 63,
+  "installed_components": 4,
+  "components_with_issues": 29,
+  "components": [
+    {
+      "name": "7-Zip",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": true,
+      "verification_details": [],
+      "issues": [],
+      "legacy_format": true
+    },
+    {
+      "name": "BloatyNosy",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": true,
+      "verification_details": [],
+      "issues": [
+        "Diret\u00f3rio de extra\u00e7\u00e3o n\u00e3o encontrado: C:\\Program Files\\BloatyNosy"
+      ],
+      "legacy_format": true
+    },
+    {
+      "name": "Boost",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": false,
+      "verification_details": [],
+      "issues": []
+    },
+    {
+      "name": "Buckaroo",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": false,
+      "verification_details": [],
+      "issues": []
+    },
+    {
+      "name": "CMake",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": true,
+      "verification_details": [],
+      "issues": [],
+      "legacy_format": true
+    },
+    {
+      "name": "Clang",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": true,
+      "verification_details": [],
+      "issues": [],
+      "legacy_format": true
+    },
+    {
+      "name": "Conan",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": false,
+      "verification_details": [],
+      "issues": []
+    },
+    {
+      "name": "Cursor IDE",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": false,
+      "verification_details": [],
+      "issues": [
+        "URL legada de download indispon\u00edvel: https://download.cursor.sh/windows/Cursor%20Setup.exe"
+      ],
+      "legacy_format": true
+    },
+    {
+      "name": "CursorVip",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": false,
+      "verification_details": [],
+      "issues": [
+        "URL legada de download indispon\u00edvel: https://download.cursor.sh/windows-vip/Cursor%20Setup.exe"
+      ],
+      "legacy_format": true
+    },
+    {
+      "name": "Cygwin",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": true,
+      "verification_details": [],
+      "issues": [],
+      "legacy_format": true
+    },
+    {
+      "name": "Dear ImGui",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": false,
+      "verification_details": [],
+      "issues": []
+    },
+    {
+      "name": "DirectX",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": true,
+      "verification_details": [],
+      "issues": [],
+      "legacy_format": true
+    },
+    {
+      "name": "Docker",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": true,
+      "verification_details": [],
+      "issues": [],
+      "legacy_format": true
+    },
+    {
+      "name": "Driver BTRFS",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": true,
+      "verification_details": [],
+      "issues": [],
+      "legacy_format": true
+    },
+    {
+      "name": "DualBootPartitionManager",
+      "is_installed": true,
+      "installation_path": "C:\\Users\\misae\\AppData\\Local\\DualBootPartitionManager",
+      "valid_download_url": false,
+      "verification_details": [
+        {
+          "type": "directory",
+          "path": "C:\\Users\\misae\\AppData\\Local\\DualBootPartitionManager",
+          "exists": true
+        }
+      ],
+      "issues": []
+    },
+    {
+      "name": "Emscripten",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": false,
+      "verification_details": [],
+      "issues": [
+        "Diret\u00f3rio de extra\u00e7\u00e3o n\u00e3o encontrado: C:\\Program Files\\emsdk"
+      ]
+    },
+    {
+      "name": "GbdevKit",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": false,
+      "verification_details": [],
+      "issues": [
+        "Diret\u00f3rio de extra\u00e7\u00e3o n\u00e3o encontrado: C:\\RetroDev\\gbdk-2020"
+      ]
+    },
+    {
+      "name": "Gendev",
+      "is_installed": true,
+      "installation_path": "C:\\RetroDev\\gendev",
+      "valid_download_url": false,
+      "verification_details": [
+        {
+          "type": "directory",
+          "path": "C:\\RetroDev\\gendev",
+          "exists": true
+        }
+      ],
+      "issues": []
+    },
+    {
+      "name": "Grub2Win",
+      "is_installed": true,
+      "installation_path": "C:\\Users\\misae\\AppData\\Local\\Grub2Win",
+      "valid_download_url": false,
+      "verification_details": [
+        {
+          "type": "directory",
+          "path": "C:\\Users\\misae\\AppData\\Local\\Grub2Win",
+          "exists": true
+        }
+      ],
+      "issues": []
+    },
+    {
+      "name": "HardLinkShellExt_X64",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": true,
+      "verification_details": [],
+      "issues": [],
+      "legacy_format": true
+    },
+    {
+      "name": "Hunter",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": false,
+      "verification_details": [],
+      "issues": []
+    },
+    {
+      "name": "K-Lite Codec Pack",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": true,
+      "verification_details": [],
+      "issues": [],
+      "legacy_format": true
+    },
+    {
+      "name": "LM Studio",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": false,
+      "verification_details": [],
+      "issues": [
+        "URL legada de download indispon\u00edvel: https://lmstudio.ai/downloads/windows/LMStudio-Setup.exe"
+      ],
+      "legacy_format": true
+    },
+    {
+      "name": "Make",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": true,
+      "verification_details": [],
+      "issues": [
+        "Diret\u00f3rio de extra\u00e7\u00e3o n\u00e3o encontrado: C:\\Program Files\\GnuWin32"
+      ],
+      "legacy_format": true
+    },
+    {
+      "name": "MemReduct",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": true,
+      "verification_details": [
+        {
+          "type": "file",
+          "path": "C:\\Program Files\\memreduct\\memreduct.exe",
+          "exists": false
+        },
+        {
+          "type": "registry",
+          "key": "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Mem Reduct_is1",
+          "value": "DisplayName",
+          "expected": "Mem Reduct",
+          "exists": false
+        }
+      ],
+      "issues": [
+        "Arquivo de verifica\u00e7\u00e3o n\u00e3o encontrado: C:\\Program Files\\memreduct\\memreduct.exe",
+        "Chave de registro n\u00e3o encontrada ou inv\u00e1lida: HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Mem Reduct_is1"
+      ]
+    },
+    {
+      "name": "Meson",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": false,
+      "verification_details": [],
+      "issues": []
+    },
+    {
+      "name": "MinGW-w64",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": true,
+      "verification_details": [],
+      "issues": [
+        "Diret\u00f3rio de extra\u00e7\u00e3o n\u00e3o encontrado: C:\\Program Files\\mingw-w64"
+      ],
+      "legacy_format": true
+    },
+    {
+      "name": "Ninja",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": true,
+      "verification_details": [],
+      "issues": [
+        "Diret\u00f3rio de extra\u00e7\u00e3o n\u00e3o encontrado: C:\\Program Files\\Ninja"
+      ],
+      "legacy_format": true
+    },
+    {
+      "name": "Notepad++",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": true,
+      "verification_details": [],
+      "issues": [],
+      "legacy_format": true
+    },
+    {
+      "name": "OBS Studio",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": true,
+      "verification_details": [],
+      "issues": [],
+      "legacy_format": true
+    },
+    {
+      "name": "Ollama",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": true,
+      "verification_details": [],
+      "issues": [
+        "Diret\u00f3rio de extra\u00e7\u00e3o n\u00e3o encontrado: C:\\Program Files\\Ollama"
+      ],
+      "legacy_format": true
+    },
+    {
+      "name": "OpenAL",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": false,
+      "verification_details": [],
+      "issues": [
+        "URL legada de download indispon\u00edvel: https://www.openal.org/downloads/oalinst.exe"
+      ],
+      "legacy_format": true
+    },
+    {
+      "name": "Optimizer",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": true,
+      "verification_details": [],
+      "issues": [],
+      "legacy_format": true
+    },
+    {
+      "name": "PNG",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": false,
+      "verification_details": [],
+      "issues": []
+    },
+    {
+      "name": "PVSnesLib",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": false,
+      "verification_details": [],
+      "issues": [
+        "Diret\u00f3rio de extra\u00e7\u00e3o n\u00e3o encontrado: C:\\RetroDev\\pvsneslib"
+      ]
+    },
+    {
+      "name": "PhysX",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": true,
+      "verification_details": [],
+      "issues": [],
+      "legacy_format": true
+    },
+    {
+      "name": "Revo Uninstaller",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": true,
+      "verification_details": [],
+      "issues": [],
+      "legacy_format": true
+    },
+    {
+      "name": "Rust",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": true,
+      "verification_details": [],
+      "issues": [],
+      "legacy_format": true
+    },
+    {
+      "name": "SDL2",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": false,
+      "verification_details": [],
+      "issues": []
+    },
+    {
+      "name": "SDL2-TTF",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": false,
+      "verification_details": [],
+      "issues": []
+    },
+    {
+      "name": "SGDK",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": false,
+      "verification_details": [],
+      "issues": [
+        "Diret\u00f3rio de extra\u00e7\u00e3o n\u00e3o encontrado: C:\\RetroDev\\SGDK"
+      ]
+    },
+    {
+      "name": "SMSDevKit",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": false,
+      "verification_details": [],
+      "issues": [
+        "Diret\u00f3rio de extra\u00e7\u00e3o n\u00e3o encontrado: C:\\RetroDev\\devkitSMS"
+      ]
+    },
+    {
+      "name": "Spack",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": false,
+      "verification_details": [],
+      "issues": [
+        "Diret\u00f3rio de extra\u00e7\u00e3o n\u00e3o encontrado: C:\\Program Files\\spack"
+      ]
+    },
+    {
+      "name": "TCC",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": false,
+      "verification_details": [],
+      "issues": [
+        "URL legada de download indispon\u00edvel: https://download.savannah.gnu.org/releases/tinycc/tcc-0.9.27-win64-bin.zip",
+        "Diret\u00f3rio de extra\u00e7\u00e3o n\u00e3o encontrado: C:\\Program Files\tcc"
+      ],
+      "legacy_format": true
+    },
+    {
+      "name": "Trae",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": false,
+      "verification_details": [],
+      "issues": [
+        "URL legada de download indispon\u00edvel: https://github.com/TraeAI/trae/releases/latest/download/trae-windows-x64.zip",
+        "Diret\u00f3rio de extra\u00e7\u00e3o n\u00e3o encontrado: C:\\Program Files\\Trae"
+      ],
+      "legacy_format": true
+    },
+    {
+      "name": "UE3Redist",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": false,
+      "verification_details": [],
+      "issues": [
+        "URL legada de download indispon\u00edvel: https://download.epicgames.com/Builds/UnrealEngineLauncher/Installers/UE3Redist.exe"
+      ],
+      "legacy_format": true
+    },
+    {
+      "name": "UE4PrereqSetup_x64",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": false,
+      "verification_details": [],
+      "issues": [
+        "URL legada de download indispon\u00edvel: https://download.epicgames.com/Builds/UnrealEngineLauncher/Installers/UE4PrereqSetup_x64.exe"
+      ],
+      "legacy_format": true
+    },
+    {
+      "name": "VLC Media Player",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": true,
+      "verification_details": [],
+      "issues": [],
+      "legacy_format": true
+    },
+    {
+      "name": "Visual Studio Build Tools",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": true,
+      "verification_details": [],
+      "issues": [],
+      "legacy_format": true
+    },
+    {
+      "name": "VisualCppRedist_AIO",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": true,
+      "verification_details": [],
+      "issues": [],
+      "legacy_format": true
+    },
+    {
+      "name": "WLA-DX",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": false,
+      "verification_details": [],
+      "issues": [
+        "Diret\u00f3rio de extra\u00e7\u00e3o n\u00e3o encontrado: C:\\RetroDev\\wla-dx"
+      ]
+    },
+    {
+      "name": "WSL",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": false,
+      "verification_details": [],
+      "issues": []
+    },
+    {
+      "name": "WinaeroTweaker",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": true,
+      "verification_details": [],
+      "issues": [
+        "Diret\u00f3rio de extra\u00e7\u00e3o n\u00e3o encontrado: C:\\Program Files\\WinaeroTweaker"
+      ],
+      "legacy_format": true
+    },
+    {
+      "name": "ZLIB",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": false,
+      "verification_details": [],
+      "issues": []
+    },
+    {
+      "name": "Zig",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": true,
+      "verification_details": [],
+      "issues": [
+        "Diret\u00f3rio de extra\u00e7\u00e3o n\u00e3o encontrado: C:\\Program Files\\zig"
+      ],
+      "legacy_format": true
+    },
+    {
+      "name": "libSFX",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": false,
+      "verification_details": [],
+      "issues": [
+        "Diret\u00f3rio de extra\u00e7\u00e3o n\u00e3o encontrado: C:\\RetroDev\\libSFX"
+      ]
+    },
+    {
+      "name": "vcpkg",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": false,
+      "verification_details": [],
+      "issues": [
+        "Diret\u00f3rio de extra\u00e7\u00e3o n\u00e3o encontrado: C:\\Program Files\\vcpkg"
+      ]
+    },
+    {
+      "name": "windowsdesktop-runtime",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": false,
+      "verification_details": [],
+      "issues": [
+        "URL legada de download indispon\u00edvel: https://download.visualstudio.microsoft.com/download/pr/85473c45-8d91-48cb-ab41-86ec7abc1000/83cd0c82f0cde9a566bae4245ea5a65b/windowsdesktop-runtime-6.0.26-win-x64.exe"
+      ],
+      "legacy_format": true
+    },
+    {
+      "name": "GloverWindows",
+      "is_installed": true,
+      "installation_path": "C:\\Users\\misae\\AppData\\Local\\GloverWindows",
+      "valid_download_url": false,
+      "verification_details": [
+        {
+          "type": "directory",
+          "path": "C:\\Users\\misae\\AppData\\Local\\GloverWindows",
+          "exists": true
+        }
+      ],
+      "issues": []
+    },
+    {
+      "name": "XNA Framework",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": false,
+      "verification_details": [],
+      "issues": [
+        "URL legada de download indispon\u00edvel: https://download.microsoft.com/download/E/C/1/EC1B4309-C3A4-446B-9642-1845A705A651/xnafx40_redist.msi"
+      ],
+      "legacy_format": true
+    },
+    {
+      "name": "DotNet SDK 8",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": false,
+      "verification_details": [],
+      "issues": [
+        "URL legada de download indispon\u00edvel: https://download.visualstudio.microsoft.com/download/pr/85473c45-8d91-48cb-ab41-86ec7abc1000/83cd0c82f0cde9a566bae4245ea5a65b/dotnet-sdk-8.0.406-win-x64.exe"
+      ],
+      "legacy_format": true
+    },
+    {
+      "name": "Zulu JDK 23",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": false,
+      "verification_details": [],
+      "issues": [
+        "URL legada de download indispon\u00edvel: https://cdn.azul.com/zulu/bin/zulu23.30.13-ca-jdk23.0.1-win_x64.msi"
+      ],
+      "legacy_format": true
+    },
+    {
+      "name": "Vulkan SDK",
+      "is_installed": false,
+      "installation_path": null,
+      "valid_download_url": true,
+      "verification_details": [],
+      "issues": [],
+      "legacy_format": true
+    }
+  ]
+}

@@ -1,0 +1,1741 @@
+############################Release Notes#################################
+
+(c) Copyright 2019 Advanced Micro Devices, Inc.  All rights reserved.  
+
+LIMITATION OF LIABILITY:  THE MATERIALS ARE PROVIDED AS IS WITHOUT ANY EXPRESS OR
+IMPLIED WARRANTY OF ANY KIND INCLUDING WARRANTIES OF MERCHANTABILITY, 
+NONINFRINGEMENT OF THIRD-PARTY INTELLECTUAL PROPERTY, OR FITNESS FOR ANY PARTICULAR
+PURPOSE. IN NO EVENT SHALL AMD OR ITS SUPPLIERS BE LIABLE FOR ANY DAMAGES 
+WHATSOEVER (INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF PROFITS, BUSINESS
+INTERRUPTION, LOSS OF INFORMATION) ARISING OUT OF THE USE OF OR INABILITY TO USE
+THE MATERIALS, EVEN IF AMD HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+BECAUSE SOME JURISDICTIONS PROHIBIT THE EXCLUSION OR LIMITATION OF LIABILITY FOR
+CONSEQUENTIAL OR INCIDENTAL DAMAGES, THE ABOVE LIMITATION MAY NOT APPLY TO YOU.
+AMD does not assume any responsibility for any errors which may appear in the 
+Materials nor any responsibility to support or update the Materials.  AMD
+retains the right to make changes to its test specifications at any time, 
+without notice.  NO SUPPORT OBLIGATION: AMD is not obligated to furnish, support, 
+or make any further information, software, technical information, know-how, or 
+show-how available to you.
+
+U.S. GOVERNMENT RESTRICTED RIGHTS: The Materials and documentation are provided 
+with RESTRICTED RIGHTS.  Use, duplication or disclosure by the Government is 
+subject to restrictions as set forth in FAR52.227014 and DFAR252.227-7013, et
+seq., or its successor.  Use of the Materials by the Government constitutes
+acknowledgment of AMD’s proprietary rights in them.
+
+===========================================================================
+
+Advisory:
+=========
+
+1. From ACP version : 2.45.0.27 and above, KSL dependency has been removed. 
+   Please contact third party codec driver vendor for latest driver without KSL driver. 
+   However, this ACP driver can work even with older third party drivers,but 
+   it is recommended to update to the latest driver.
+   
+2. From ACP version : 2.89.0.58 + Realtek driver version 8964 and above, packet based mechanism 
+   has been enabled to pass the HLK test items on 20H1 OS and above.
+   All the compatibilities( update and backward compatibility scenarios )
+   have been taken care of and all the OEMs are suggested to 
+   adopt this new mechanism by contacting the third party codec vendor for updated driver.
+   
+3. ACP Version has been modified to 6.0.0.0 due to new SOC related software changes.
+  
+=========================================================================== 
+
+ACP and KSL version compatibility table:
+----------------------------------------
+
+ACP version         KSL version
+============        ===========
+2.45.0.27            1.0.0.39
+
+2.45.0.26            1.0.0.39
+
+2.44.0.26            1.0.0.39
+
+2.43.0.26            1.0.0.39
+
+2.43.0.25            1.0.0.39
+
+2.42.0.25            1.0.0.39
+
+2.41.0.25            1.0.0.39
+
+2.40.0.25            1.0.0.39
+
+2.40.0.24            1.0.0.39
+
+2.39.0.24            1.0.0.39
+
+2.39.0.23            1.0.0.39
+
+2.38.0.23            1.0.0.39
+
+2.37.0.23            1.0.0.39
+
+2.37.0.22            1.0.0.39
+
+
+=============================================================================
+
+ACP and KSL revision history:
+-----------------------------
+Driver version = 6.0.0.49 , 08/22/2022
+=======================================
+Added           : I2S audio enablement for Aerith project.
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.48 , 07/20/2022
+=======================================
+Updated         : OEM presets.
+
+Updated         : Improvements for RMB WoV Feature.
+
+Updated         : ISVs DSP library update from RTK.
+
+Fixed           : [MDN]Multiple WHQL tests failed on ACP/AFD.
+
+Fixed           : Failed to play test tone observed with specific USB dongles when USB Headset connected.
+
+Fixed           : PDM endpoint & AMD Audio Device node disappears when Audacity is launched.
+
+Fixed           : [MDN]System can't be wake up from S0i3 via Cortana.
+
+Fixed           : Glitchy Audio after switching audio between Headphones and Speakers endpoints with 96 khz sample rate dynamic LPAP.
+
+Fixed           : BSOD observed pointing to amdacpbus.sys when turn on the verifier.
+
+Fixed           : ISVs library update for convergence issue.
+
+Added           : Reference stream changes for Soundwire.
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.47 , 07/06/2022
+=======================================
+Updated         : OEM presets.
+
+Fixed           : AINR DSP library update from Realtek.
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.46 , 06/14/2022
+=======================================
+Updated         : OEM presets.
+
+Fixed           : [Win11 SV2][OEM ][WHLK]System - PNP (disable and enable) with IO Before and After (Reliability)Fail On BSOD 0X50.
+
+Fixed           : USB Register Base Changes.
+
+Updated         : Improvements for RMB WoV Feature.
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.45 , 06/08/2022
+=======================================
+Updated         : OEM presets.
+
+Fixed           : MSBY WHQL tests are skipping while running on AMD AUDIO DEVICE with SV2 OS.
+
+Fixed           : Dual LPAP+ single APO issue.
+
+Fixed           : Yellow bang with APO validation apart from one ISV.
+
+Fixed           : BSOD observed while running DF - PNP Surprise Remove Device Test (Reliability) WHQL test on AMD Audio Co Processor with SV2 OS.
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.44 , 05/26/2022
+=======================================
+Updated         : OEM presets.
+
+Fixed           : Poor audio quality is observed in recorded content via Chrome voice recorder.
+
+Fixed           : ADD/Delete BT device and encountered BSOD 0x1e.
+
+Updated         : Render Status in ISV, Improvements for ISV's WoV Feature.
+
+Fixed           : Passing Render(Speaker data) Energy from HiFi5 DSP to Fusion DSP.
+
+Fixed           : String data type char should be used in RtlStringCbPrintfA instead of WCHAR.
+
+Fixed           : KS Position test is failing on AMD Audio Device.
+
+Fixed           : Suprise Remove test failed with capture+AINR+SWLoopback.
+
+Fixed           : Stop_requesting_intermediate_clock.
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.43 , 05/17/2022
+=======================================
+Updated         : OEM presets.
+
+Fixed           : Glitchy Audio on Recorded Content Playback with SV2 OS in HP Lockheed RMB.
+
+Updated         : Improvements for RMB WoV Feature; [Mi][A28S]A28S WoV tunning; [Mi][A28S]A28S WoV tunning
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.42 , 05/11/2022
+=======================================
+Updated         : OEM presets.
+
+Added           : SoundWire feature.
+
+Fixed           : Dishwasher/Keyboard sound not suppressing, and echoes observed when stream playback going on AMD HD Audio end point with windows voice recording.
+
+Fixed           : No DSP dumps are generated while checking for Keyword Detections.
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.41 , 05/04/2022
+=======================================
+Updated         : OEM presets.
+
+Added           : Soundwire feature.
+
+Fixed           : Render Status in Lenovo T16.
+
+Updated         : Improvements for RMB WoV Feature.
+
+Updated         : ISV Scratch Memory change.
+
+Fixed           : Sometimes can't play audio or video file via WMP and online video when resume from MS.
+
+Updated         : AINR DSP library update.
+
+Fixed           : Improvements for RMB WoV Feature.
+
+Added           : Added USB Related Bus changes with stg.
+
+Fixed           : EDGE play online music, turn off/on Nahimic audio feature meet placyback abnormal.(Instant jam disc sound) FR: 100% Speaker and headphone both fail.
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.40 , 04/26/2022
+=======================================
+Updated         : OEM presets.
+
+Added           : Soundwire feature.
+
+Fixed           : Render Status in Lenovo T16.
+
+Updated         : Improvements for RMB WoV Feature
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.39 , 04/19/2022
+=======================================
+Updated         : OEM attributes and presets.
+
+Fixed           : Audio hang is observed on playing second offload stream on headphones.
+
+Fixed           : Audio control panel hang observed when Alexa enabled.
+
+Fixed           : AMD Audio CoProcessor show YellowBang in Device Manager after S4 long run stress test.
+
+Added           : AINR DSP library update from ISVs.
+
+Added           : RPL capture ATT change and acpimage gen changes.
+
+Added           : USB capture changes.
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.38 , 04/12/2022
+=======================================
+Updated         : OEM attributes and presets.
+
+Added           : [RMB]support AINR DSP processing on RAW mode instead of Default mode.
+
+Added           : Enablement of XiaoAi TongXue Keyword on RMB Platforms.
+
+Fixed           : Render AINR Common buffer size allocation is fixed to work LPAP+AINR at the same time when we enable the ISVs render.
+
+Fixed           : BSOD Observed when ACPAFD driver installed and it is pointing to amdacpbus.sys.
+
+Fixed           : Render Status is fixed in ISVs platform.
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.37 , 04/05/2022
+=======================================
+Updated         : OEM attributes and presets.
+
+Fixed           : [RPL]Data not recorded and AINR not working and after some time BSOD observed and it is pointing to amdacpafd.sys.
+
+Added           : SRAM dynamic memory descriptor to scratch memory.
+
+Added           : Tongfang MRID6 need enable ISV.
+
+Added           : SEP48 and SEP483 code optimized Library for RMB.
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.36 , 03/30/2022
+=======================================
+Updated         : OEM attributes and presets.
+
+Fixed           : Audio control panel hang observed when Alexa enabled.
+
+Fixed           : Render APO loading is Failed.
+
+Fixed           : Wake On Voice of PBS item doesn't take effect while booting with Fast startup.
+
+Fixed           : ACPDriver YellowBang Enable_Disable Fix.
+
+Fixed           : Render APO loading is Failed(Exception/YB) in RPL.
+
+Fixed           : DF - PNP Rebalance Request New Resources Device Test (Reliability) is failing.
+
+Fixed           : Audio Hang Observed while playing offload on headphones plugged in and out on HP Lockheed.
+
+Added           : Improvements for RMB WoV Feature.
+
+Added           : MDN F/W changes to STG.
+
+Added           : ACP bin packaging script changes for hybrid image configuration.
+
+Added           : USB LPAP Firmware changes.
+
+Added           : Sram Descriptors moving to scratch memory review changes.
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.35 , 03/16/2022
+=======================================
+Updated         : OEM attributes and presets.
+
+Fixed           : [RPL] Intermittent Hangs with D3 while setting the VA On.
+
+Fixed           : Groove music shows 0xc00d36b4 and ACP shows YB in DM after resume from S0i3 by WoV(FR: 4/35).
+
+Fixed           : Three MIC noise for SWKWS.
+
+Fixed           : [BT]Audio not audible with PTRON BT Headset when audio control panel is in playback tab.
+
+Fixed           : SW Loopback entry missing in latest adrenalin acpoemcfg0001.json file downloaded from Git Repo.
+
+Added           : Changes for solving palamida issues.
+
+Added           : Improvements for RMB WoV Feature.
+
+Added           : Passing all presets to Fusion DSP from driver.
+
+Added           : Sound Wire Hardware-offloaded Audio Processing (HAP).
+
+Added           : Disabling Interrupts in Exception Handler & Disabling unnecessary interrupt triggers.
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.34 , 03/03/2022
+=======================================
+Updated         : OEM attributes and presets.
+
+Fixed           : Cortana is switching to SWKWS.
+
+Fixed           : Audio Output in ISV is 4~5dB lower than another ISV.
+
+Fixed           : Excess logs are in ETL.
+
+Fixed           : BSOD is observed on amdacpbus with enabled VA during driver installation.
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.33 , 02/18/2022
+=======================================
+Updated         : OEM attributes and presets.
+
+Fixed           : Fix for Yellow bang while loading default capture.
+
+Fixed           : WoV tuning, Cortana tool chain cannot launch with RTK driver installed.
+
+Fixed           : Yellow bang observed with code 10 on AMD Acp bus after loading dat file for capture.
+
+Fixed           : [BT] Audio lag or no sound observed after resume from S4 on AMD Bluetooth Endpoint with Stream Playback.
+
+Fixed           : SUT occur SMU hang FW_Error_Internal when SUT resume from S4.
+
+Fixed           : Exception is observed when Nahimic is loaded.
+
+Fixed           : SHA DMA timeout logic using KeQueryPerformanceCounter values.
+
+Fixed           : Detections are not observed when the device is in Idle(D3) state & Observing 1kb KWS VAD DSP dumps while checking for the Detections.
+
+Added           : Code cleanup of RPL.
+
+Added           : Updating versions for SDK and WDK in make files.
+
+Added           : DTS lib integration and optimization for Rembrandt.
+
+Added           : SEP483 lib integration and optimization for Rembrandt.
+
+Added           : Nahimic new lib integration and test.
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.32 , 02/02/2022
+=======================================
+Updated         : OEM attributes and presets.
+
+Fixed           : Keyword Model Data Load failure and system hang in ISV's RMB Platform.
+
+Fixed           : Realtek driver can’t get correct IV data from DSP.
+
+Fixed           : Bug check 9F BSOD observed when enable driver verifier settings and Ran ACP WHQL.
+
+Fixed           : RC5 Idle Hang with Z-State Enabled.
+
+Added           : Waves lib integration and optimization for Rembrandt.
+
+Added           : ACX SoundWire support to the bus driver.
+
+Added           : Dynamic LPAP changes for ISV's RMB platform.
+
+Added           : DTS lib integration and optimization for Rembrandt.
+
+Added           : Enabling AFDSVC into auto builds for software loopback implementation support and merge into STG.
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.31 , 01/20/2022
+=======================================
+Updated         : OEM attributes and presets.
+
+Fixed           : Adding Support for Fusion Input DSP Dumps.
+
+Fixed           : Complete audio fail and failed to play test tone on 48Khz & 96Khz Format switching performed during playback with APO’s SR.+ SP96 single LPAP on speakers enabled.
+
+Fixed           : Unit BSOD(0X3b)observed when run "Open and Close of the players" test.
+
+Fixed           : RPL bring up support.
+
+Fixed           : Software Loopback Feature Implementation.
+
+Fixed           : Driver and JSON file changes to read supported Bluetooth Codecs information from DAT file.
+
+Fixed           : Yellow bang observed on ACP in Device Manager with STG binaries.
+
+Fixed           : LPAP function is not ready yet on ISVs project asking for FW APO integration support.
+
+Fixed           : Cortana Detections are not observed initially for some time after the driver installation, even VA setting are enabled.
+
+Fixed           : Improvements for RMB WoV Feature.
+
+Fixed           : BSOD observed 9F/0x133 w/ WinPVT.
+
+Fixed           : Observing issues while trasitioning from D3 to D0.
+
+Fixed           : System will auto play 1s previous audio when reopen audio/video file. (TC request for capturing SR API function call ).
+
+Fixed           : Allow hardware acceleration option is missing in audio control panel with ACP Ver_31.
+
+
+
+Driver version = 6.0.0.30 , 01/04/2022
+=======================================
+Updated         : OEM attributes and presets.
+
+Fixed           : Porting HiFi3 to HiFi5 Architectures for Code and Data Memory Optimizations.
+
+Fixed           : Correcting copyright information in comments for AMDACPBUS and AMDACPAFD.
+
+Fixed           : RPL bring up support.
+
+Fixed           : Reduced FA Model for RMB Cortana KWS.
+
+Fixed           : LPAP function is not ready yet on Nolets projest asking for ISV's FW APO integration support.
+
+
+
+Driver version = 6.0.0.29 , 12/23/2021
+=======================================
+Updated         : OEM attributes and presets.
+
+Fixed           : Presets not applied to Fusion DSP from Driver/Firmware.
+
+Fixed           : Porting HiFi3 to HiFi5 Architectures for Code and Data Memory Optimizations.
+
+Fixed           : [BT] Audio glitches observed on Bluetooth recorded data when rendered on Bluetooth headset.
+
+Fixed           : Audio hang observed when the Endpoint changed from Speaker to HDMI with two offload playback using ISVs APO & Ultrasound.
+
+Fixed           : IntcAzAudAddService Error in Event log after reboot.
+
+Fixed           : ISV FW tuning did not take effect on RMB.
+
+Fixed           : Serious noise occur / ACP YB and internal mic lost after update ACP v26 RC.
+
+Fixed           : Audio not audible on ISV's 96K endpoint.
+
+Fixed           : [BT] Audio Hang + Bug check 3B Observed while playing offload on headphones plugged in and out on HP Lockheed.
+
+Fixed           : PG4 genout makefile update BT-AZ Endpoint Switch exception.
+
+Fixed           : BSOD observed pointing to portcls.sys when making BT device default in recording tab.
+
+Fixed           : ISV's effect needs to be re-enabled to work properly when booting up into the system.
+
+Fixed           : Audio glitches during mixing of audio in high volume.
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.28 , 12/03/2021
+=======================================
+Fixed           : System can not enter Z10 state when voice activation is turned ON.
+
+Fixed           : System can't boot into OS after installed ACP.
+
+Fixed           : PDM Mic and BT Audio Devices are missing from device manager after DF-Reinstall with IO before and after WHQL test.
+
+Fixed           : [BT] Noise observed with stream playback after voice recorder launched on BT.
+
+Fixed           : [BT] Glitches observed when recorded using voice recorder on JBL speakers/Headset.
+
+Fixed           : SUT occurred hard hang with bugcheck 0x9F after resume from modern standby.
+
+Fixed           : Ultra sound signal has Zeros in the recorded file when PDM endpoint is Kept Mute.
+
+Updated         : OEM attributes.
+
+Added           : Nahimic lib integration and optimization for Rembrandt.
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.27 , 11/24/2021
+=======================================
+Updated         : OEM attributes and presets.
+
+Added           : AI Based Noise Reduction lib update.
+
+Fixed           : Distortion is observed when switching between different sample rates with 48k endpoint.
+
+Fixed           : Popup noise observed in Windows startup.
+
+Fixed           : Glitch for few seconds on speakers when end point switch performed during stream playback & loopback.
+
+Added           : Enabled dynamic power gating.
+
+Fixed           : Bluetooth capture is not working for Skype.
+
+Fixed           : Static Logo test is failing on BT Device.
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.26 , 11/16/2021
+=======================================
+Updated         : OEM attributes.
+
+Added           : AI Based Noise Reduction feature.
+
+Added           : Bluetooth Offload feature.
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.25 , 11/10/2021
+=======================================
+Updated         : OEM attributes and presets.
+
+Fixed           : Fix system boot issue.
+
+Fixed           : Audio Glitch Observed During Playback with I2S endpoint.
+
+Fixed           : AMD Audio coprocessor yellow bang in Device Manager
+
+Added           : APO type check for one of the ISVs.
+
+Added           : New ISVs library integration.
+
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.24 , 10/26/2021
+=======================================
+Updated         : OEM attributes and presets.
+
+Fixed           : CORTANA keyword false detections.
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.23 , 10/13/2021
+=======================================
+Updated         : OEM attributes and presets.
+
+Fixed         	: Failed to play test tone is observed when test tone played on headphones after speaker Test tone.
+
+Fixed           : Audio hang is observed when 2 offload and Ultra sound service is restarted.
+
+Fixed           : Sound has not change when adjust volume via system tray icon.
+
+Fixed           : Observing DMA not in Run in Logger while Render is playing.
+
+Fixed           : Glitches observed with host playback when 96k Endpoint is Set.
+
+Added           : DTS lib integration and optimization.
+
+Fixed           : Failed to play test tone observed when Enable DTS library integrated.
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.22 , 09/28/2021
+=======================================
+Updated         : OEM attributes and presets.
+
+Updated         : HWKWS updated from Hey Cortana to Cortana for Barcelo and Rembrandt platforms.
+
+Fixed           : BSOD 9F Observed during Directed FX System Verification WHQL test.
+
+Added           : ACP Z-State Readiness changes.
+
+Added           : Added Support for other 13 Multi-languages of Cortana and Hey Cortana Keywords on Rembrandt platforms.
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.21 , 09/14/2021
+=======================================
+Updated         : OEM attributes.
+
+Fixed           : Render APO type not loaded correctly on Rembrandt.
+
+Added           : Multi Engine support for Rembrandt.
+
+Added           : SR_1_1_22_1 lib integration and optimization for Rembrandt.
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.20 , 08/30/2021
+=======================================
+Updated         : OEM attributes and presets.
+
+Updated         : Migration from Hey Cortana to Cortana.
+
+Fixed 	        : Exception in DSP is observed when Test tone is played.
+
+Fixed 	        : System Audio Tests are failing.
+
+Fixed 	        : ACP yellow bang after install.
+
+Fixed 	        : Directed FX System Verification WHQL Test fail.
+
+Fixed 	        : Yellow bang observed after installing ACP on 19H2 OS.
+
+Added           : Added ISV Integration.
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.19 , 08/17/2021
+=======================================
+Updated         : OEM attributes. 
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.18 , 08/10/2021
+=======================================
+Fixed           : Additional noise when adjusting volume during Wechat/Teams.
+
+Fixed           : Audio Glitch observed while switching between Audio endpoints while recording with Audacity tool.
+
+Fixed           : Audio hang observed when Cortana VA is enabled.
+
+Fixed           : Audio hang observed when 2-offload+1-host is played.
+
+Added           : Resource interface V2 support in ACP and AFD.
+
+Updated         : OEM attributes.
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.17 , 08/04/2021
+=======================================
+Fixed 	        : Audio hang is observed when test tone is played.
+
+Added 			: BT code Support.
+
+Added           : AI Based Noise Reduction.
+
+Updated         : OEM attributes
+
+Added 			: Keyword ID to HEY CORTARA.
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.16 , 07/27/2021
+=======================================
+Fixed 	        : BSOD when plug in/out headphone with Tencent video playing.
+
+Added 			: Ultrasound feature support.
+
+Added           : OEM attributes.
+
+Updated         : OEM attributes and presets.
+
+Removed         : CETCOMPAT linker flag in VS solution and make files.
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.15 , 07/20/2021
+=======================================
+Fixed           : Tuned the Keyword related parameters for reduction of false detections.
+
+Added           : OEM attributes
+
+Added           : Enable DMIC channel swap on OEM Platform.
+
+Added           : Cortana Keyword Enablement.
+
+Added           : CETCOMPAT linker flag in VS solution and make files
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.14 , 07/13/2021
+=======================================
+Fixed           : Glitches observed when 8k frequency streams are played.
+
+Added           : OEM attributes
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.13 , 07/07/2021
+=======================================
+Fixed           : Audio Codec general test fail.
+
+Added           : Driver changes done to support CORTANA keyword.
+
+Fixed           : CodeQL Mustfix and recommended errors.
+
+Added           : OEM attributes and presets.
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.12 , 06/29/2021
+=======================================
+
+Fixed           : No audio output from headset in Dynamic LPAP platform.
+
+Added           : OEM attributes and presets.
+
+Modified        : Code cleanup.
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.11 , 06/23/2021
+=======================================
+Added           : Multiple plugin grougps for each mode of effect.
+
+Updated         : Updated ISV Lib.
+
+Fixed           : Glitches observed in the Mic data when VA settings are enabled and disabled.
+
+Modified        : Endpoint Memory Allocation Changes.
+
+Added           : OEM attributes and presets.
+
+Added           : Z-State support added.
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.10 , 06/15/2021
+=======================================
+Updated         : Updated ISV Lib.
+
+Modified        : Code optimization and Clean up.
+
+Modified        : Changes done to opt into DFx.
+
+Added           : OEM attributes.
+
+Fixed           : Audio hang due to synchronization issues is resolved.
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.9 , 06/08/2021
+=======================================
+Fixed           : BSOD during driver uninstallation.
+
+Fixed           : Audio hang observed with device transition from d3 to d0 with Alexa/Cortana Detections.
+
+Modified        : Change LPAP/ Capture Pipleline Frame size from 256 to 240 for new APU.
+
+Modified        : Code cleanup.
+
+Added           : OEM attributes.
+
+Audio Processing Change = NO
+
+
+Driver version = 6.0.0.8 , 06/02/2021
+=======================================
+Fixed           : Memory leaks are fixed.
+
+Fixed           : Audio hang on a few platforms is resolved.
+
+Added           : OEM attributes and presets.
+
+Audio Processing Change = NO
+
+
+Driver version = 6.0.0.7 , 05/26/2021
+=======================================
+Fixed           : Driver installation failure on a few platforms is fixed.
+
+Fixed           : AMD cleanup utility failure is resolved.
+
+Added           : OEM attributes and presets.
+
+Audio Processing Change = NO
+
+
+Driver version = 6.0.0.6 , 05/19/2021
+=======================================
+Added           : Coverity code cleanup
+
+Added           : OEM attributes and presets
+
+Bug fixed       : Audio hang observed during audio playback + voice recorder is fixed.
+
+Bug fixed       : BSOD in S3/S4 long run cycles is resolved.
+
+Audio Processing Change = NO
+
+
+Driver version = 6.0.0.5 , 05/12/2021
+=======================================
+Added           : Coverity code cleanup
+
+Added           : OEM attributes and presets
+
+Bug Fixed       : Failed to play Test Tone observed on RMB AM5 desktop
+
+Bug Fixed       : Observing 2ch data for AEC input dump
+
+Bug Fixed       : Observing Spikes in the AEC loopback/Input/Output buffers
+
+Bug Fixed       : Teams meeting APP creation 'now meeting' will appear blue screen on Thinkbook 14 pro_FFRT_20H2__APP.
+
+Audio Processing Change = NO
+
+
+Driver version = 6.0.0.4 , 05/04/2021
+=======================================
+Modified        : LPAP enablement from speaker to headphone for OEM
+
+Added           : OEM attributes and presets
+
+Bug Fixed       : Loopback amplitude is not stable, amplitude is varying. Glitches observed when VA settings are enabled
+
+Audio Processing Change = NO
+
+
+
+Driver version = 6.0.0.3 , 04/27/2021
+=======================================
+Updated         : OEM attributes and tuning presets.
+
+Bug Fixed       : Observing Audio Hang when device is transitioning from D3 to D0 with offload played after some time with VA on.
+
+Bug Fixed       : Get Parameter failure with improper command ID
+
+
+Driver version = 6.0.0.2 , 04/20/2021
+=======================================
+Added           : Update of OEM attributes and  WoV parameters Tuning.
+
+Added           : Create separate plugins for each mode effect. 
+
+Added           : Adding legacy support for Win7.
+ 
+Bug Fixed       : Fix for No Alexa detections observed and Integrated HiFi5 Optimized AWWE library onto RMB ACP Code.
+
+Bug Fixed       : Integrate latest DTS library with Get Version support.
+
+Bug Fixed       : Fix for Audio hang when system in D3 with Voice activation for Alexa and Cortana are ON. 
+
+
+Driver version = 6.0.0.1 , 04/14/2021
+=======================================
+Added           : OEM attributes and tuning presets
+
+Fixed           : Glitches observed with render stream on OEM
+
+
+
+Driver version = 6.0.0.0 , 04/05/2021
+=======================================
+Added           : Rembrandt code integration.
+
+Bug fixed       : Corrected the 4 mic locations of Fujitsu Nadleeh 2.
+
+Updated         : OEM attributes and tuning presets.
+
+
+Driver version = 2.89.0.86 , 04/02/2021
+=======================================
+Updated: OEM attributes and tuning presets.
+
+Bug fixed: Noise Issue when playing online music with 100% CPU load
+
+
+Driver version = 2.89.0.85 , 03/30/2021
+=======================================
+Added: New Keyword support for OEM
+
+Added: OEM attributes and tuning presets.
+
+Updated: EffectsGUID for an ISV
+
+Fixed: Fix for System Audio - Ks Position test
+
+Optimized: DRAM optimization
+
+
+Driver version = 2.89.0.84 , 03/23/2021
+=======================================
+Added	  : New Keyword implementation
+
+Updated	  : Tuning presets and Oem Attributes
+
+
+Driver version = 2.89.0.83 , 03/16/2021
+=======================================
+Bug fixed : [WOV]Glitches observed in default capture path during Cortana Test 
+
+Updated	  : Tuning presets for OEMs
+
+Added     : Implement IOCTL for WoV Preset tuner Application
+
+
+Driver version = 2.89.0.82 , 03/09/2021
+=======================================
+Bug fixed : BSOD with bugcheck 0x50 is resolved
+
+Updated: OEM attributes and presets
+
+Updated: Enablement of new WOV keyword
+
+
+Driver version = 2.89.0.81 , 03/02/2021
+=======================================
+Added     : Tuning presets for OEMs
+
+Bug Fixed : Observing BSOD as DRIVER POWER STATE FAILURE
+
+Added	  : Driver support for I2S codec for OEMs
+
+
+Driver version = 2.89.0.80 , 02/22/2021
+=======================================
+Added: Tuning presets for OEM's.
+
+
+Driver version = 2.89.0.79 , 02/16/2021
+=======================================
+Added: OEM attributes and tuning presets.
+
+Updated: ISV library is updated
+
+Updated: WDK/SDK and VS versions
+
+Added: Coverity code cleanup
+
+
+Driver version = 2.89.0.78 , 02/09/2021
+=======================================
+Added: OEM attributes and tuning presets.
+
+Added : Enabled driver support for I2S codec on CRB.
+
+Bug fixed : There were sputter noise found by Harman while turn on AudioEFX tool add
+
+
+Driver version = 2.89.0.77 , 02/01/2021
+=======================================
+Added: OEM attributes and tuning presets.
+
+Added: Driver support for particular OEMs with I2S codec
+
+Bug fixed: Volume control process
+
+
+Driver version = 2.89.0.76 , 01/27/2021
+=======================================
+Bug fixed : There is audio nosie when clicking volume bar quickly
+
+Bug fixed : Mute is not applied on speakers with headhones pluggedin /pluggedout
+
+Added     : Implement changes related to Cortana V8 Kit Echo failure.
+
+Added     : OEM attributes and presets
+
+
+Driver version = 2.89.0.75 , 01/18/2021
+=======================================
+Updated : OEM attributes and presets
+
+
+Driver version = 2.89.0.74 , 01/12/2021
+=======================================
+Updated : OEM attributes and presets
+
+
+Driver version = 2.89.0.73 , 01/05/2021
+=======================================
+Updated : OEM attributes and presets
+
+Added : A few sanity checks
+
+
+Driver version = 2.89.0.72 , 12/30/2020
+=======================================
+Bug Fixed : BSOD bug check 50 is observed when ACP bus is disabled and enabled
+
+Added     : OEM attributes and tuning parameters
+
+
+Driver version = 2.89.0.71 , 12/24/2020
+=======================================
+Bug Fixed : speaker no output and sometimes icon in system tray will show red "X" with no audio device after plug out earphone with online video
+
+Bug Fixed : BSOD with bugcheck 7E observed with disable/Enable of ACP with Regkey enabled
+
+Bug Fixed : Peakmeter, Mute and Volume control are not applying on speakers when headphones are connected
+
+Added     : OEM attributes and tuning parameters
+
+
+Driver version = 2.89.0.70 , 12/15/2020
+=======================================
+Added: Dynamic LPAP switching enablement
+
+Updated: Oem attributes and tuning parameters
+
+
+Driver version = 2.89.0.69 , 11/30/2020
+=======================================
+Bug fixed: Noise issue resolved on few platforms
+
+Updated: Oem attributes and tuning parameters
+
+
+Driver version = 2.89.0.68 , 11/24/2020
+=======================================
+Bug fixed : There is pipi during playing MP3 file by movies&TV with the maximum volume
+
+Bug fixed : Stress BurnIn testing will occur bsod 0x9F issue
+
+Bug Fixed : Detections are not observed and No Render playback
+
+Added 	  : OEM attributes
+
+Added     : Enabled registry key based Plugin output data dump
+
+Changed   : Preset values for OEM platform.
+
+Changed   : Memory optimization for ISV
+
+
+Driver version = 2.89.0.67 , 11/03/2020
+=======================================
+Bug fixed : Critical noise occured when played the vioce/Camera video recording
+
+Added     : Latest third party APO integration
+
+Added     : OEM attributes and preset Values
+
+
+Driver version = 2.89.0.66 , 10/19/2020
+=======================================
+Bug fixed : MIC lost during virtual conference calls(Zoom)
+
+Added 	  : Oem Attributes
+
+Added 	  : Enabled registry key based input data dump
+
+Changed   : Coverity code clean-up
+
+
+Driver version = 2.89.0.65 , 10/07/2020
+=======================================
+Bug fixed : Audio noise recorded from 4-Mic SKU
+
+Bug fixed : BSOD triggered while installing RTK driver
+
+Added     : Oem Attributes
+
+Added     : Intergrated optimized libraries of render APOs
+
+
+Driver version = 2.89.0.64 , 09/21/2020
+=======================================
+Changed : Coverity code clean-up
+
+Added : OEM attributes
+
+Changed : WOV tuning parameters and preset values.
+
+Added: New ISV library integration.
+
+
+Driver version = 2.89.0.63 , 09/08/2020
+=======================================
+Bug Fixed : LPAP support missing on Headset on few OEMs 
+
+Updated : OEM Attributes
+
+Updated : WoV plugins, Preset Values for few OEMs
+
+
+Driver version = 2.89.0.62 , 08/26/2020
+=======================================
+Added    : New ISV library integration.
+
+Updated  : OEM attributes
+
+Bug fixed : Slow boot problem on few platforms is resolved.
+
+Updated: Keyword memory optimization.
+
+
+Driver version = 2.89.0.61 , 08/11/2020
+=======================================
+Added    : New ISV library integration.
+
+Updated  : OEM attributes
+
+
+Driver version = 2.89.0.60 , 07/28/2020
+=======================================
+Updated   : 4 Mic configuration on few OEMs.
+
+Updated   : Oem Attributes for OEMs.
+
+Added     : New Keyword support for few OEMs. 
+
+Bug fixed : Player hang after resume from S3/S4 states is resolved.
+
+Bug fixed : Test tone failure on few platforms is resolved
+
+Updated   : Preset values.
+
+
+Driver version = 2.89.0.59 , 06/26/2020
+=======================================
+
+Updated : Oem Attributes and preset parameters.
+
+Bug fixed : DSP exception and BSOD on few OEMs is resolved.
+
+Added : Dual endpoint support for platforms when WOV is set to false in BIOS
+
+
+Driver version = 2.89.0.58 , 06/11/2020
+=======================================
+Bug fixed: WHQL test - Hardware audio processing (HAP) is fixed.
+
+Bug fixed: WHQL test - Ksposition test in fixed.
+
+Bug fixed: Startup silence is added for few OEMs.
+
+
+Driver version = 2.89.0.57 , 05/30/2020
+=======================================
+Bug fixed : Noise issue occured during long runs while using certain players is resolved.
+
+Bug fixed : Improved pass rate of WHQL tests.
+
+Added : New interface added for compatibility with AFD driver.
+
+
+Driver version = 2.89.0.56 , 05/18/2020
+=======================================
+Bug fixed: HLK-General Audio test failure is fixed.
+
+Updated : Cortana audio buffer frame size
+
+Bug fixed: HLK-Wave test failure is fixed.
+
+Bug fixed : WOV detections are working after disable/enable of DMIC
+
+Updated : Plugins and OEM attributes
+
+
+Driver version = 2.89.0.55 , 05/05/2020
+=======================================
+Bug fixed: Loopback recording issue on platforms with Hi-Res feature is resolved.
+
+Bug fixed: Audio function crash of particular OEMs is resolved.
+
+Updated: Oem attributes and preset values
+
+
+Driver version = 2.89.0.54 , 04/24/2020
+=======================================
+Bug fixed: Noise issue on particular OEMs during stress test case is resolved.
+
+
+Driver version = 2.88.0.53 , 04/22/2020
+=======================================
+Updated : Preset values of OEMs for WOV scores.
+
+
+Driver version = 2.87.0.52 , 04/20/2020
+=======================================
+Updated : OEM attributes are updated.
+
+Bug fixed: AZ page registers are cleared to resolve audio switching problems on particular OEMs.
+
+Updated: Plugin update for improvement of echo scores.
+
+
+Driver version = 2.84.0.51 , 04/09/2020
+=======================================
+Updated : Resolved Plugin Images clean build issue.
+
+
+Driver version = 2.83.0.51 , 04/06/2020
+=======================================
+Updated : Multi-Language Support Changes for Cortana/Alexa with Clean built plugin images.
+
+
+Driver version = 2.82.0.50 , 04/06/2020
+=======================================
+Bug fixed: Resolved zizi noise output after played online Iqiyi video.
+
+Updated : Clean built DAX3 plugin is updated.
+
+
+Driver version = 2.81.0.50 , 04/01/2020
+=======================================
+Bug fixed: Resolved BSOD 0x50 occured during stress test/long run
+
+Updated : Preset parameters for few OEMs.
+
+
+Driver version = 2.81.0.48 , 03/27/2020
+=======================================
+Added: Code changes to support multiple endpoint formats on particular OEMs.
+
+Updated: Firmware for multi-language support.
+
+
+Driver version = 2.80.0.47 , 03/19/2020
+=======================================
+Updated: OEM attributes and presets.
+
+
+Driver version = 2.80.0.46 , 03/17/2020
+=======================================
+Added: Changed and separated few ISV names
+
+
+Driver version = 2.79.0.45 , 03/12/2020
+=======================================
+Added: Support is added for Dual HAP enabled endpoints ( Speaker & headphones ) on certain OEMs
+Added: Endpoint sample rate re-configuration.
+
+
+Driver version = 2.77.0.44 , 03/11/2020
+=======================================
+Bug fixed: System Audio - WHQL test KsPosition is fixed on 20H1 OS.
+
+
+Driver version = 2.77.0.43 , 03/09/2020
+=======================================
+Bug fixed: System Audio - WHQL test KsPosition is fixed on 19H1 OS. Position is calculated accurately.
+
+
+Driver version = 2.77.0.42 , 03/07/2020
+=======================================
+Bug fixed: Speaker signal saturation issue.
+
+Updated: Presets and attributes updated for few OEMs.
+
+Added: Single channel DMIC support.
+
+
+Driver version = 2.76.0.40 , 03/05/2020
+=======================================
+Bug fixed: Fix for System Audio Wavetest
+
+Bug fixed: Resolved input buffer corruption
+
+Updated: Plugin images for all ISVs
+
+
+Driver version = 2.75.0.40 , 02/27/2020
+=======================================
+Added : Function entry for all the APIs in firmware code and cleaned up logs.
+
+
+Driver version = 2.74.0.40 , 02/24/2020
+=======================================
+Updated: Changing the offload buffer size range from 2 sec to 4 sec
+
+
+Driver version = 2.74.0.39 , 02/20/2020
+=======================================
+Updated : OEM attributes 
+
+
+Driver version = 2.74.0.38 , 02/18/2020
+=======================================
+Modified : Noise gating specific for each platform, reduced the noise gating parameter table size for enable and disable.
+
+Modified : Enabled Noise gating for OEM platforms in preset parameters of driver code.
+		   
+Modified : Moved IIR HPF 12th order to common folder and removed unsused code.
+		   
+Updated  : plugin images for all ISV's.
+
+
+Driver version = 2.73.0.38 , 02/17/2020
+=======================================
+Implemented: packet based data transmission
+
+Added : memory allocations for Dbg Prints 
+
+
+Driver version = 2.73.0.35 , 02/13/2020
+=======================================
+Updated: WOV plugin updates for Alexa detections improvement in D3 state and Echo Scores improvement for Hey Cortana.
+
+
+Driver version = 2.71.0.34 , 02/11/2020
+=======================================
+Updated: Setting default mic gain for few OEMs.
+
+
+Driver version = 2.71.0.33 , 02/07/2020
+=======================================
+Updated: Preset values.
+
+Enabled: Enabled WOV for certain platforms.
+
+Updated: Improvement in echo scores.
+
+
+Driver version = 2.68.0.32 , 02/05/2020
+=======================================
+Added: Added Firmware error checks and logs.
+
+Updated: WOV plugin updates for keyword detection improvement.
+
+Removed: HW gain is removed.
+
+
+Driver version = 2.65.0.31 , 01/23/2020
+=======================================
+Updated: Updated WOV plugins.
+
+Updated: HWKWS detection improvements.
+
+
+Driver version = 2.62.0.31 , 01/22/2020
+=======================================
+Bug fixed: Modern standby related ACP changes.
+
+Added: Additional sanity checks
+
+Updated: Oem Attributes
+
+
+Driver version = 2.62.0.30 , 01/17/2020
+=======================================
+Bug Fixed: Reduced FA's.
+
+Bug Fixed: Improvement in TA's.
+
+
+Driver version = 2.57.0.30 , 01/09/2020
+=======================================
+Bug fixed: Pu noise is resolved which was observed on few platforms while playing video files.  
+
+Bug fixed: Noise is resolved which was observed in recorded files.
+
+Updated: Sending mute parameters to capture engine during armed state.
+
+Updated: Handling mute parameters using mutex.
+
+Updated: Sending paramters to WOV plugins if any of the detectors is armed.
+
+
+Driver version = 2.54.0.29 , 01/08/2020
+=======================================
+Bug fixed: Sending mute parameters to capture engine when either capture/cortana is running.
+
+Updated: Applying MIC volume as zero if custom volume node is enabled.
+
+Bug fixed: Checking capture engine type in Mute to avoid for render
+
+
+Driver version = 2.54.0.28 , 01/08/2020
+=======================================
+Added: AGC is added in SWKWS data path.
+
+Added: Registry key to enable/disable WOV.
+
+Updated: Updates in DC filter.
+
+Updated: Disabled WOV for OEM platforms.
+
+Updated: Preset and attributes for OEMs.
+
+Updated: Changes in Stream state logic.
+
+Bug fixed: Zizi noise is resolved which occurs while using voice recorder.
+
+Bug fixed: Cortana Mute is applied
+
+Bug fixed: Noise in internal microphone is resolved.
+
+Implemented: Logic to load images from file.
+
+
+Driver version = 2.45.0.27 , 12/30/2019
+=======================================
+Modified : Removed KSL dependency code for all Audio drivers
+
+
+Driver version = 2.45.0.26 , 12/30/2019
+=======================================
+Bug Fixed : Multiple iteration issue of S3/S4
+
+Modified :  Removed Firmware to driver log during Firmware init.
+
+
+Driver version = 2.44.0.26 , 12/27/2019
+=======================================
+Added : Preset loading support from driver to plugin
+
+Modified :  Generated plugin images for all ISV's.
+
+
+Driver version = 2.43.0.26 , 12/27/2019
+=======================================
+Bug fixed : KS position test on AFD
+
+Added : Reporting play offest as per the input stream data rate.
+
+Modified : Reduced delay added in PDM DMA Start.
+
+
+Driver version = 2.43.0.25 , 12/25/2019
+=======================================
+Bug Fixed : D-mic recoder perfermance too low.
+
+Added : Volume control table(-96dB to 0dB) is updated with Internal Microphone dB range -96dB to +30dB.
+
+
+Driver version = 2.42.0.25 , 12/24/2019
+=======================================
+Added : 48K Support for Capture and added DC Filter.
+
+
+Driver version = 2.41.0.25 , 12/24/2019
+=======================================
+Modified : Configured the DMIC based on Non MVA driver Arm and Re arm sequence
+
+
+Driver version = 2.40.0.25 , 12/24/2019
+=======================================
+Bug fixed : WHQL Test - System Audio - KS Topology Test
+
+Added : Mic gain value 12.6 dB for one of the OEMs (Format changed to ULONG)
+
+Modified: caching Volume gain values for Volume set/get requests on certain platforms
+
+
+Driver version = 2.40.0.24 , 12/22/2019
+=======================================
+Added : Generated plugin images for all ISV's.
+
+
+Driver version = 2.39.0.24 , 12/20/2019
+=======================================
+Added : supported libs and  default Mic gain value 12.6db for one of the OEMs
+
+Modified : ULONG to Float conversion for MicGain supported
+
+
+Driver version = 2.39.0.23 , 12/19/2019
+=======================================
+Fixed : Burst data corruption
+
+
+Driver version = 2.38.0.23 , 12/19/2019
+=======================================
+Added : Generated plugin images for all ISV's.
+
+
+Driver version = 2.37.0.23 , 12/19/2019
+=======================================
+Added : Non MVA and MVA changes
+
+
+Driver version = 2.37.0.22 , 12/16/2019
+=======================================
+Modified : Submitted after re-compiling plugins
+
+
+Driver version = 2.36.0.22 , 12/16/2019
+=======================================
+Bug fixed: BSOD is resolved when DF WHQL test is run.
+
+Bug fixed: Audio loss is fixed on previous generation platforms.
+
+Added: Added four part ID into registry path
+
+
+Driver version = 2.35.0.21 , 12/12/2019
+=======================================
+Added: Supporting High Resolution audio format on specified platforms
+
+Added: Integration of thrid party ISV libraries
+
+Bug fixed: WOV plugin is updated for Voice assistant deafness 
+
+
+Driver version = 2.33.0.20 , 12/12/2019
+=======================================
+Bug fixed: Driver to BIOS communication for Clock Request, FW_image and PG_Image.
+
+Bug fixed: Modifications in AEC
+
+Updated: OEM attributes are updated. 
+
+
+Driver version = 2.31.0.19 , 12/08/2019
+=======================================
+Bug fixed: DMIC record Right chanel and Left chanel are reverse
+
+Added: A variable Channelswap in Scratch Memory.
+
+Implemented: Left and Right Channel reversing based on Channelswap value.
+
+
+Driver version = 2.30.0.18 , 12/05/2019
+=======================================
+Updated: OEM Attributes
+
+Bug fixed: BSOD in few platforms is resolved.
+
+Bug fixed: Audio control panel hang in few OEMs is resolved.
+
+Implemented: IRP_MN_WAIT_WAKE
+
+
+Driver version = 2.29.0.17 , 12/02/2019
+=======================================
+Updated: OEM attributes and default volume for OEM
+
+
+Driver version = 2.29.0.16 , 11/30/2019
+=======================================
+Updated: Updates in volume range for AMD audio device(DMIC)
+
+Added: New OEM attributes
+
+
+Driver version = 2.25.0.15 , 11/22/2019
+=======================================
+Updated: Updates in plugins.
+
+Resolved: Resolved errors in WHQL certification tests.
+
+Added: New OEM attributes
+
+
+Driver version = 2.24.0.14 , 11/21/2019
+=======================================
+Updated : Supports MVA, (Alexa and Hey Cortana) 
+
+
+Driver version = 2.23.0.13 , 11/14/2019
+=======================================
+Fixed : KS topology test - "Property check get and set Ranges"
+
+Updated: Volume stepping value
+
+
+Driver version = 2.21.0.12 , 11/13/2019
+=======================================
+Fixed: Resolved few false detections.
+
+Added: Enabled new third party ISV DSP APOs.
+
+Updated: Updated Mic parameters for OEMs.
+
+
+Driver version = 2.18.0.11 , 11/06/2019
+=======================================
+Fixed: Follow up command after Cortana is working.
+
+Added: Updating Mic parameters from driver.
+
+
+Driver version = 2.17.0.10 , 10/31/2019
+=======================================
+Fixed: Resolved an exception in AarSrv
+
+Updated: Memory and Clock optimization
+
+Updated: Few internal optimizations
+
+
+Driver version = 2.13.0.9 , 10/17/2019
+======================================
+Bug fixed: Resolved BSOD in restart stress test.
+
+Updated: FW signing script is updated.
+
+
+Driver version = 2.12.0.8 , 10/11/2019
+======================================
+Bug fixed: Improvements in Cortana detections.
+
+Added: Integrated latest code for plugins.
+
+
+Driver version = 2.10.0.8 , 09/27/2019
+======================================
+Bug fixed: Audio control panel hang after resume from S3/S4 is resolved.
+
+Added: WOV buffer management changes.
+
+
+Driver version = 2.9.0.6 , 09/20/2019
+=====================================
+Bug fixed: Audio loss/Hang with certain players is resolved
+
+Added: Integration of third party ISV APOs.
+
+
+Driver version = 2.8.0.4 , 09/13/2019
+=====================================
+Bug Fixed: BSOD/system hang while using certain audio players in stress test case in resolved.
+
+Added: Integration of third party ISV libraries.
+
+Added: External Mic supports 16k format.
+
+Added: Delay buffer.
+
+
+
+Driver version = 2.1.0.2 , 08/30/2019
+=====================================
+Bug Fixed: No yellow bangs will be observed on audio devices.
+
+
+Driver version = 2.1.0.1 , 08/23/2019
+===================================
+Bug Fixed: Audio hang/System hang in different cases is resolved
+
+
+Driver version = 2.1.0.0 , 08/13/2019
+===================================
+Changes: To support new hardware family
+
+
+Changes in amdacpksl:
+---------------------
+Driver version = 1.0.0.39
+=========================
+Added: Added interface support for new hardware family.
+
+
+===================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
