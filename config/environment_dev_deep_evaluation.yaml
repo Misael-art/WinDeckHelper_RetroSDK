@@ -1,0 +1,62 @@
+# Environment Dev Deep Evaluation Configuration
+# This file contains system-wide configuration settings
+
+# Core system settings
+debug_mode: false
+log_level: "INFO"
+max_parallel_operations: 4
+operation_timeout: 300
+
+# Detection settings
+detection_cache_enabled: true
+detection_cache_ttl: 3600
+hierarchical_detection_enabled: true
+
+# Download settings
+download_timeout: 300
+max_download_retries: 3
+parallel_downloads_enabled: true
+hash_verification_required: true
+
+# Installation settings
+automatic_rollback_enabled: true
+backup_before_installation: true
+privilege_escalation_prompt: true
+
+# Steam Deck settings
+steam_deck_detection_enabled: true
+steam_deck_optimizations_enabled: true
+
+# Storage settings
+intelligent_storage_enabled: true
+compression_enabled: true
+cleanup_after_installation: true
+
+# Plugin settings
+plugin_system_enabled: true
+plugin_signature_verification: true
+plugin_sandboxing_enabled: true
+
+# UI settings
+modern_ui_enabled: true
+real_time_progress: true
+detailed_feedback: true
+
+# Essential runtimes to detect
+essential_runtimes:
+  - "Git 2.47.1"
+  - ".NET SDK 8.0"
+  - "Java JDK 21"
+  - "Visual C++ Redistributables"
+  - "Anaconda3"
+  - ".NET Desktop Runtime 8.0/9.0"
+  - "PowerShell 7"
+  - "Node.js/Python (updated)"
+
+# Package managers to detect
+package_managers:
+  - "npm"
+  - "pip"
+  - "conda"
+  - "yarn"
+  - "pipenv"

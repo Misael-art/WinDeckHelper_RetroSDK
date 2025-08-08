@@ -1,0 +1,394 @@
+# Sistema de Configuração Dinâmica
+# Configurações centralizadas para todos os sistemas do env_dev
+
+version: "1.0"
+created_by: "dynamic_configuration_system"
+last_updated: "2024-01-01"
+
+# Configurações do Sistema de Detecção
+detection:
+  # Motor de detecção principal
+  engine:
+    enabled: true
+    cache_enabled: true
+    cache_ttl: 3600  # 1 hora
+    max_detection_time: 300  # 5 minutos
+    parallel_detection: true
+    max_workers: 4
+    
+  # Estratégias de detecção
+  strategies:
+    registry_detection:
+      enabled: true
+      priority: 1
+      timeout: 60
+      
+    executable_scan:
+      enabled: true
+      priority: 2
+      timeout: 120
+      scan_paths:
+        - "C:\\Program Files"
+        - "C:\\Program Files (x86)"
+        - "/usr/bin"
+        - "/usr/local/bin"
+        - "/opt"
+      
+    path_based:
+      enabled: true
+      priority: 3
+      timeout: 30
+      
+    package_manager:
+      enabled: true
+      priority: 4
+      timeout: 90
+      supported_managers:
+        - "pip"
+        - "npm"
+        - "chocolatey"
+        - "apt"
+        - "yum"
+        - "brew"
+    
+    microsoft_store:
+      enabled: true
+      priority: 5
+      timeout: 45
+  
+  # Configurações de confiança
+  confidence:
+    minimum_threshold: 0.5
+    registry_weight: 0.9
+    executable_weight: 0.7
+    path_weight: 0.6
+    package_manager_weight: 0.8
+    
+  # Filtros de detecção
+  filters:
+    exclude_system_apps: true
+    exclude_windows_store_framework: true
+    minimum_version_confidence: 0.3
+    
+# Configurações de Compatibilidade
+compatibility:
+  # Motor de compatibilidade
+  engine:
+    enabled: true
+    auto_conflict_detection: true
+    heuristic_analysis: true
+    cache_enabled: true
+    cache_ttl: 7200  # 2 horas
+    
+  # Análise de conflitos
+  conflict_detection:
+    version_conflicts: true
+    dependency_conflicts: true
+    platform_conflicts: true
+    resource_conflicts: true
+    configuration_conflicts: true
+    runtime_conflicts: true
+    path_conflicts: true
+    port_conflicts: true
+    
+  # Resolução automática
+  auto_resolution:
+    enabled: false  # Desabilitado por segurança
+    safe_resolutions_only: true
+    backup_before_resolution: true
+    max_resolution_attempts: 3
+    
+  # Heurísticas
+  heuristics:
+    version_similarity_threshold: 0.8
+    dependency_depth_limit: 5
+    conflict_detection_timeout: 30
+    
+# Configurações de Segurança
+security:
+  # Detecção de contaminação
+  contamination_detection:
+    enabled: true
+    real_time_monitoring: false
+    scan_interval: 3600  # 1 hora
+    deep_scan_interval: 86400  # 24 horas
+    
+  # Monitoramento de processos
+  process_monitoring:
+    enabled: true
+    suspicious_process_detection: true
+    network_activity_monitoring: true
+    file_system_monitoring: false
+    
+  # Análise de baseline
+  baseline:
+    auto_create: true
+    update_interval: 604800  # 7 dias
+    backup_baselines: true
+    max_baseline_age: 2592000  # 30 dias
+    
+  # Whitelist de segurança
+  whitelist:
+    processes:
+      - "explorer.exe"
+      - "dwm.exe"
+      - "winlogon.exe"
+      - "python.exe"
+      - "node.exe"
+      - "java.exe"
+      - "code.exe"
+      - "git.exe"
+    
+    directories:
+      - "C:\\Windows\\System32"
+      - "C:\\Program Files"
+      - "C:\\Program Files (x86)"
+      - "/usr/bin"
+      - "/usr/sbin"
+    
+    domains:
+      - "github.com"
+      - "npmjs.org"
+      - "pypi.org"
+      - "nuget.org"
+      - "maven.apache.org"
+      
+# Configurações de Integridade
+integrity:
+  # Verificação pós-instalação
+  post_installation:
+    enabled: true
+    auto_verify: true
+    verify_checksums: true
+    verify_signatures: true
+    verify_dependencies: true
+    
+  # Tipos de verificação
+  checks:
+    file_existence: true
+    file_size: true
+    file_checksum: true
+    registry_entries: true
+    service_status: true
+    process_running: true
+    directory_structure: true
+    file_permissions: true
+    digital_signatures: true
+    
+  # Configurações de cache
+  cache:
+    enabled: true
+    checksum_cache_ttl: 86400  # 24 horas
+    max_cache_size: "500MB"
+    
+  # Relatórios
+  reporting:
+    auto_generate: true
+    include_recommendations: true
+    include_repair_actions: true
+    
+# Configurações de Dependências
+dependencies:
+  # Análise de grafos
+  graph_analysis:
+    enabled: true
+    max_depth: 10
+    detect_circular: true
+    detect_conflicts: true
+    
+  # Dependências transitivas
+  transitive:
+    analyze: true
+    max_transitive_depth: 5
+    cache_results: true
+    
+  # Detecção específica por tecnologia
+  technology_specific:
+    python:
+      enabled: true
+      analyze_pip: true
+      analyze_conda: true
+      analyze_requirements_txt: true
+      
+    nodejs:
+      enabled: true
+      analyze_npm: true
+      analyze_yarn: true
+      analyze_package_json: true
+      
+    java:
+      enabled: true
+      analyze_maven: true
+      analyze_gradle: true
+      analyze_ivy: true
+      
+    dotnet:
+      enabled: true
+      analyze_nuget: true
+      analyze_packages_config: true
+      analyze_project_files: true
+      
+    system:
+      enabled: true
+      analyze_shared_libraries: true
+      analyze_system_packages: true
+      
+# Configurações de Auto-Reparo
+auto_repair:
+  # Sistema principal
+  engine:
+    enabled: true
+    auto_execution: false  # Requer confirmação
+    backup_before_repair: true
+    max_repair_attempts: 3
+    repair_timeout: 300  # 5 minutos
+    
+  # Tipos de reparo habilitados
+  repair_types:
+    file_repair: true
+    registry_repair: true
+    permission_repair: true
+    dependency_repair: true
+    configuration_repair: true
+    cache_repair: true
+    network_repair: true
+    service_repair: false  # Desabilitado por segurança
+    environment_repair: true
+    installation_repair: true
+    
+  # Configurações de segurança
+  safety:
+    require_admin_confirmation: true
+    backup_critical_files: true
+    rollback_on_failure: true
+    test_repairs: true
+    
+  # Limites de automação
+  automation:
+    max_auto_repairs_per_session: 5
+    min_confidence_for_auto_repair: 0.8
+    blacklist_critical_repairs: true
+    
+# Configurações de Performance
+performance:
+  # Limites de recursos
+  resource_limits:
+    max_memory_usage: "1GB"
+    max_cpu_usage: 50  # porcentagem
+    max_disk_io: "100MB/s"
+    max_network_io: "50MB/s"
+    
+  # Otimizações
+  optimizations:
+    parallel_processing: true
+    lazy_loading: true
+    result_caching: true
+    compression: true
+    
+  # Timeouts
+  timeouts:
+    detection_timeout: 300
+    analysis_timeout: 600
+    repair_timeout: 300
+    network_timeout: 30
+    
+# Configurações de Logging
+logging:
+  # Níveis de log
+  levels:
+    root: "INFO"
+    detection: "INFO"
+    compatibility: "INFO"
+    security: "WARNING"
+    integrity: "INFO"
+    dependencies: "INFO"
+    auto_repair: "INFO"
+    
+  # Configurações de arquivo
+  file_logging:
+    enabled: true
+    max_file_size: "10MB"
+    backup_count: 5
+    rotation: "daily"
+    
+  # Logging estruturado
+  structured:
+    enabled: true
+    format: "json"
+    include_metadata: true
+    
+# Configurações de Notificações
+notifications:
+  # Canais de notificação
+  channels:
+    console: true
+    file: true
+    email: false
+    webhook: false
+    
+  # Tipos de notificação
+  types:
+    detection_complete: true
+    conflicts_detected: true
+    contamination_detected: true
+    integrity_issues: true
+    repair_needed: true
+    repair_complete: true
+    
+  # Filtros
+  filters:
+    minimum_severity: "medium"
+    rate_limiting: true
+    max_notifications_per_hour: 10
+    
+# Configurações de Interface
+interface:
+  # Interface de linha de comando
+  cli:
+    colored_output: true
+    progress_bars: true
+    verbose_mode: false
+    interactive_mode: true
+    
+  # Interface web (se disponível)
+  web:
+    enabled: false
+    port: 8080
+    host: "localhost"
+    auth_required: true
+    
+  # Relatórios
+  reports:
+    auto_open: false
+    format: "html"
+    include_charts: true
+    include_recommendations: true
+    
+# Configurações Experimentais
+experimental:
+  # Recursos em desenvolvimento
+  features:
+    ai_powered_detection: false
+    predictive_analysis: false
+    machine_learning_optimization: false
+    cloud_integration: false
+    
+  # Configurações de teste
+  testing:
+    enable_test_mode: false
+    mock_external_services: false
+    simulate_errors: false
+    
+# Configurações de Migração
+migration:
+  # Compatibilidade com versões anteriores
+  backward_compatibility:
+    support_legacy_config: true
+    auto_migrate_config: true
+    backup_old_config: true
+    
+  # Versionamento
+  versioning:
+    config_version: "1.0"
+    min_supported_version: "1.0"
+    auto_update_check: true

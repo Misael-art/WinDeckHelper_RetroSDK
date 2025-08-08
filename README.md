@@ -1,194 +1,229 @@
-# Environment Dev - Instalador Modular
+# Environment Dev Deep Evaluation v2.0
 
-Um instalador modular para configuração de ambientes de desenvolvimento para PC Engines, com suporte a rollback, verificação de instalação e feedback detalhado de status.
+<div align="center">
 
-## 🚀 Principais Recursos
+![Environment Dev](https://img.shields.io/badge/Environment-Dev-blue?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-2.0.0-green?style=for-the-badge)
+![Python](https://img.shields.io/badge/Python-3.8+-yellow?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-red?style=for-the-badge)
 
-- **Sistema de Instalação Real**: Downloads e instalações reais de componentes (não simulações)
-- **Interface Gráfica Moderna**: Dashboard interativo com feedback em tempo real
-- **Sistema de Rollback**: Desfaz instalações em caso de falha
-- **Verificação de Instalação**: Confirma se os componentes foram instalados corretamente
-- **Gerenciamento de Dependências**: Instalação automática de dependências na ordem correta
-- **Progresso em Tempo Real**: Barras de progresso e logs detalhados durante instalações
-- **86+ Componentes**: Ampla biblioteca de ferramentas para desenvolvimento
-- **Categorização de Erros**: Sistema robusto de tratamento e categorização de erros
-- **Sistema de Mirrors**: Fallback automático para URLs alternativas
-- **Verificação de Espaço**: Confirma espaço em disco antes dos downloads
+**Sistema completo de detecção e instalação de ambientes de desenvolvimento**
 
-## ✨ Novidades da Versão Atual
+[🚀 Download](#-download) • [📖 Documentação](#-documentação) • [🎮 Steam Deck](#-steam-deck) • [🤝 Contribuir](#-contribuindo)
 
-### 🔧 Correções Críticas Implementadas
-- **Instalações Reais**: Removidas todas as simulações - agora faz downloads e instalações reais
-- **GUI Corrigida**: Interface gráfica agora chama funções reais de instalação
-- **Downloads Funcionais**: Sistema de download completamente funcional com progresso real
-- **Diagnósticos Reais**: Verificações de sistema agora executam diagnósticos reais
+</div>
 
-### 📊 Componentes Testados e Funcionais
-- **CCleaner** (instalação manual): ✅ Funcional
-- **Game Fire** (download automático): ✅ Download testado
-- **Anaconda, LM Studio, NVIDIA CUDA**: ✅ Configurados para instalação automática
-- **86 componentes** carregados e validados
+## 🎯 Visão Geral
 
-## Estrutura do Projeto
+O **Environment Dev Deep Evaluation** é uma solução completa e robusta para detectar, gerenciar e instalar ambientes de desenvolvimento. Com interface gráfica moderna, suporte completo ao Steam Deck e sistema de instalação inteligente.
 
+### ✨ Principais Funcionalidades
+
+- 🔍 **Detecção Automática** - Identifica componentes já instalados no sistema
+- 🛠️ **Instalação Robusta** - Sistema de instalação com rollback automático
+- 🎮 **Steam Deck Ready** - Otimizado para Steam Deck com interface touch
+- 🎨 **Interface Moderna** - GUI responsiva e intuitiva
+- 🔄 **Status Persistente** - Mantém estado entre execuções
+- 🎯 **SGDK 2.11** - Instalação real do Sega Genesis Development Kit
+- 🧩 **Sistema de Plugins** - Arquitetura extensível
+- 📊 **Relatórios Detalhados** - Logs e métricas completas
+
+## 🚀 Download
+
+### Pacote Pronto para Uso
+Baixe o executável completo (não requer Python instalado):
+
+- **Windows**: [EnvironmentDevDeepEvaluation_v2.0.zip](releases/latest)
+- **Linux/Mac**: [EnvironmentDevDeepEvaluation_v2.0.zip](releases/latest)
+
+### Instalação Rápida
+```bash
+# 1. Baixar e extrair o ZIP
+# 2. Executar o launcher:
+# Windows:
+Iniciar_Environment_Dev.bat
+
+# Linux/Mac:
+./iniciar_environment_dev.sh
 ```
-environment_dev_script/
-├── env_dev/                 # Código principal do instalador
-│   ├── config/              # Configurações e definições
-│   ├── core/                # Funcionalidade principal
-│   ├── gui/                 # Interface gráfica
-│   ├── utils/               # Utilitários e funções auxiliares
-│   └── main.py              # Ponto de entrada do módulo
-├── docs/                    # Documentação
-├── logs/                    # Diretório para logs
-├── downloads/               # Diretório para downloads
-├── resources/               # Recursos e arquivos estáticos
-├── legacy/                  # Código legado (PowerShell)
-├── environment_dev.py       # Script de inicialização
-└── README.md                # Documentação principal
-```
 
-## Requisitos
+## 📖 Documentação
 
+### Guias de Usuário
+- 📋 [Guia de Instalação](docs/installation_configuration_guide.md)
+- 🎮 [Uso no Steam Deck](docs/steamdeck_usage_guide.md)
+- 🏗️ [Arquitetura do Sistema](docs/architecture_analysis.md)
+
+### Para Desenvolvedores
+- 🔧 [Guia de Deployment](DEPLOYMENT_README.md)
+- 📝 [Resumo das Correções](FINAL_FIXES_SUMMARY.md)
+- 🛠️ [Sistema de Instalação](SISTEMA_INSTALACAO_ROBUSTO_COMPLETO.md)
+
+## 🎮 Steam Deck
+
+Totalmente otimizado para Steam Deck com:
+
+- ✅ Interface touch otimizada
+- ✅ Navegação por gamepad
+- ✅ Detecção automática de hardware
+- ✅ Otimizações de bateria
+- ✅ Modo overlay
+- ✅ Feedback háptico
+
+## 🛠️ Componentes Suportados
+
+### Runtimes Essenciais
+- **Git** - Sistema de controle de versão
+- **Python 3.x** - Linguagem de programação
+- **Node.js** - Runtime JavaScript
+- **Java JDK** - Kit de desenvolvimento Java
+- **.NET SDK** - Framework Microsoft
+- **Visual C++** - Redistributables Microsoft
+- **PowerShell** - Shell avançado
+
+### Ferramentas de Desenvolvimento
+- **Visual Studio Code** - Editor de código
+- **Docker Desktop** - Containerização
+- **Kubernetes** - Orquestração de containers
+- **Git Bash** - Terminal Git para Windows
+
+### Kits de Desenvolvimento Retro 🕹️
+- **SGDK 2.11** - Sega Genesis Development Kit
+- **GBDK** - Game Boy Development Kit
+- **CC65** - Compilador para SNES
+- **PSn00bSDK** - PlayStation 1 SDK
+- **Devkitpro** - Nintendo consoles
+- **E muitos outros...**
+
+## 🔧 Instalação para Desenvolvimento
+
+### Pré-requisitos
 - Python 3.8+
-- Windows 10/11
-- Conexão com a internet (para componentes online)
+- Windows 10/11, Linux ou macOS
+- 2GB RAM mínimo
+- 1GB espaço em disco
 
-## Instalação
+### Instalação
+```bash
+# Clonar repositório
+git clone https://github.com/Misael-art/EnvironmentDev_MISA.git
+cd EnvironmentDev_MISA
 
-1. Clone o repositório:
-   ```
-   git clone https://github.com/seu-usuario/environment_dev_script.git
-   cd environment_dev_script
-   ```
+# Instalar dependências
+pip install -r requirements.txt
 
-2. Crie um ambiente virtual (opcional, mas recomendado):
-   ```
-   python -m venv .venv
-   .venv\Scripts\activate
-   ```
+# Executar
+python main.py
+```
 
-3. Instale as dependências:
-   ```
-   pip install -r env_dev/requirements.txt
-   ```
+### Criar Pacote de Deployment
+```bash
+# Instalar dependências de build
+python install_build_dependencies.py
 
-## 🎯 Uso Rápido
+# Criar executável
+python build_deployment.py
 
-### Interface Gráfica (Recomendado)
+# Testar pacote
+python test_deployment_package.py
+```
 
-Execute o script principal para iniciar o dashboard interativo:
+## 📊 Estatísticas do Projeto
+
+- **Linhas de Código**: ~15,000+
+- **Arquivos Python**: 50+
+- **Componentes Suportados**: 140+
+- **Documentação**: 20+ arquivos
+- **Testes**: 100+ casos de teste
+
+## 🏗️ Arquitetura
+
+```
+EnvironmentDev_MISA/
+├── core/                    # Núcleo do sistema
+│   ├── detection_engine.py      # Motor de detecção
+│   ├── installer.py             # sistema de instalação
+│   ├── component_manager.py     # gerenciador de componentes
+│   └── ...
+├── gui/                     # Interface gráfica
+│   ├── modern_frontend_manager.py
+│   ├── components_viewer_gui.py
+│   └── ...
+├── config/                  # Configurações
+│   └── components/              # Definições YAML
+├── docs/                    # Documentação
+├── deployment/              # Pacotes de distribuição
+└── tests/                   # Testes automatizados
+```
+
+## 🧪 Testes
 
 ```bash
-python env_dev/main.py
+# Executar todos os testes
+python -m pytest tests/
+
+# Testes específicos
+python test_sgdk_fixes.py
+python test_final_fixes.py
+python test_deployment_package.py
 ```
 
-**Recursos da GUI:**
-- 📊 Dashboard com status em tempo real
-- 📈 Barras de progresso durante downloads
-- 🔍 Sistema de diagnósticos integrado
-- 📝 Logs detalhados em tempo real
-- ⚙️ Seleção múltipla de componentes
+## 🤝 Contribuindo
 
-### Linha de Comando
+Contribuições são bem-vindas! Por favor:
 
-Para listar todos os componentes disponíveis:
+1. **Fork** o repositório
+2. **Crie** uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. **Commit** suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. **Push** para a branch (`git push origin feature/AmazingFeature`)
+5. **Abra** um Pull Request
 
-```bash
-python env_dev/main.py --list
-```
+### Diretrizes
+- Siga o estilo de código existente
+- Adicione testes para novas funcionalidades
+- Atualize a documentação
+- Teste no Steam Deck se possível
 
-Para instalar componentes específicos:
+## 📝 Changelog
 
-```bash
-python env_dev/main.py --install "Game Fire" "Process Lasso"
-```
+### v2.0.0 (2025-08-08)
+- ✅ **SGDK atualizado para versão 2.11**
+- ✅ **Sistema de status persistente implementado**
+- ✅ **Correção de falsos positivos na detecção**
+- ✅ **Sincronização automática entre detecção e interface**
+- ✅ **Sistema de deployment completo com PyInstaller**
+- ✅ **Documentação abrangente**
+- ✅ **Testes automatizados**
 
-Para executar diagnósticos do sistema:
+### v1.0.0 (2025-08-01)
+- 🎉 Lançamento inicial
+- 🔍 Sistema de detecção básico
+- 🛠️ Instalação de componentes essenciais
+- 🎮 Suporte inicial ao Steam Deck
 
-```bash
-python env_dev/main.py --check-env
-```
+## 📄 Licença
 
-### 🧪 Testes de Validação
+Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
 
-Execute os testes para verificar se tudo está funcionando:
+## 🙏 Agradecimentos
 
-```bash
-# Teste básico do sistema
-python test_installation_fix.py
+- **Stephane-D** - Criador do SGDK
+- **Comunidade Steam Deck** - Feedback e testes
+- **Desenvolvedores Retro** - Inspiração e sugestões
+- **Contribuidores** - Todas as contribuições valiosas
 
-# Teste completo de download
-python test_real_download_installation.py
-```
+## 📞 Suporte
 
-### Opções Adicionais
+- 🐛 **Issues**: [GitHub Issues](https://github.com/Misael-art/EnvironmentDev_MISA/issues)
+- 💬 **Discussões**: [GitHub Discussions](https://github.com/Misael-art/EnvironmentDev_MISA/discussions)
+- 📧 **Email**: [Criar Issue](https://github.com/Misael-art/EnvironmentDev_MISA/issues/new)
 
-- `--no-gui`: Força o modo de linha de comando
-- `--check-env`: Verifica o ambiente e dependências
-- `--log-level`: Define o nível de log (DEBUG, INFO, WARNING, ERROR, CRITICAL)
-- `--rollback`: Ativa o modo de rollback para desfazer instalações anteriores
-- `--verify-only`: Apenas verifica se os componentes estão instalados corretamente
+---
 
-## Sistema de Instalação
+<div align="center">
 
-O Environment Dev possui um sistema de instalação robusto com suporte a rollback, verificação de instalação e feedback detalhado de status. Para mais informações, consulte a [documentação do sistema de instalação](docs/installation_system.md).
+**Feito com ❤️ para a comunidade de desenvolvimento**
 
-### Exemplos de Uso
+[⭐ Star este projeto](https://github.com/Misael-art/EnvironmentDev_MISA) se ele foi útil para você!
 
-```python
-from env_dev.core.installer import install_component
-
-# Definição do componente
-component_data = {
-    'install_method': 'download',
-    'download_url': 'https://example.com/tools/utility.zip',
-    'extract_path': 'C:\\Program Files\\Utility',
-    'verify_actions': [
-        {
-            'type': 'file_exists',
-            'path': 'C:\\Program Files\\Utility\\bin\\utility.exe'
-        }
-    ]
-}
-
-# Instalação do componente
-result = install_component('Utility', component_data)
-```
-
-Para mais exemplos, consulte a [documentação de exemplos](docs/examples/installation_examples.md).
-
-## Logs e Testes
-
-O Environment Dev Script inclui logs detalhados e testes abrangentes para garantir o funcionamento correto do script.
-
-### Logs Detalhados
-
-Os logs são armazenados no diretório `logs` e incluem informações sobre a inicialização da interface gráfica, a instalação de componentes e outras operações importantes. Para mais informações, consulte a [documentação de logs e testes](docs/logs_and_tests.md).
-
-### Testes
-
-Para executar todos os testes:
-
-```
-python -m unittest discover tests
-```
-
-Para executar testes específicos:
-
-```
-python -m unittest tests.test_clover_scenarios
-python -m unittest tests.test_gui_initialization
-```
-
-Os testes incluem:
-
-- Testes da interface gráfica
-- Testes da instalação do Clover
-- Testes de cenários com diferentes configurações
-- Testes de tratamento de erros
-
-## Licença
-
-Este projeto está licenciado sob a licença MIT - veja o arquivo LICENSE para mais detalhes.
-# Environment-Dev
+</div>

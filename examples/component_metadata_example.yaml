@@ -1,0 +1,178 @@
+# Exemplo de como adicionar metadados aos componentes YAML para melhorar o sistema de sugestões
+# Este arquivo demonstra a estrutura recomendada para componentes com metadados
+
+# Exemplo 1: Visual Studio Code com metadados completos
+vscode:
+  name: "Visual Studio Code"
+  description: "Editor de código-fonte desenvolvido pela Microsoft"
+  category: "Editores de Código"
+  
+  # Metadados para correspondência
+  metadata:
+    aliases:
+      - "vscode"
+      - "visual studio code"
+      - "vs code"
+      - "code"
+    tags:
+      - "editor"
+      - "ide"
+      - "desenvolvimento"
+      - "microsoft"
+      - "typescript"
+      - "javascript"
+    executables:
+      - "Code.exe"
+      - "code.exe"
+      - "code.cmd"
+    detection_hints:
+      registry_keys:
+        - "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\{*}VSCodeUserSetup*"
+        - "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\{*}Microsoft Visual Studio Code*"
+      common_paths:
+        - "%LOCALAPPDATA%\\Programs\\Microsoft VS Code"
+        - "%PROGRAMFILES%\\Microsoft VS Code"
+      environment_vars:
+        - "VSCODE_PATH"
+    
+  # Configuração de instalação original
+  windows:
+    installer_type: "exe"
+    download_url: "https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user"
+    install_args: ["/VERYSILENT", "/NORESTART", "/MERGETASKS=!runcode"]
+    verification:
+      type: "executable"
+      path: "Code.exe"
+      locations:
+        - "%LOCALAPPDATA%\\Programs\\Microsoft VS Code\\bin"
+        - "%PROGRAMFILES%\\Microsoft VS Code\\bin"
+
+# Exemplo 2: Git com metadados
+git:
+  name: "Git"
+  description: "Sistema de controle de versão distribuído"
+  category: "Ferramentas de Desenvolvimento"
+  
+  metadata:
+    aliases:
+      - "git"
+      - "git scm"
+      - "git for windows"
+    tags:
+      - "vcs"
+      - "controle de versão"
+      - "desenvolvimento"
+      - "colaboração"
+    executables:
+      - "git.exe"
+      - "git-bash.exe"
+      - "git-cmd.exe"
+    detection_hints:
+      registry_keys:
+        - "HKEY_LOCAL_MACHINE\\SOFTWARE\\GitForWindows"
+      common_paths:
+        - "%PROGRAMFILES%\\Git"
+        - "%PROGRAMFILES(X86)%\\Git"
+      commands:
+        - "git --version"
+    
+  windows:
+    installer_type: "exe"
+    download_url: "https://github.com/git-for-windows/git/releases/latest/download/Git-2.42.0.2-64-bit.exe"
+    install_args: ["/VERYSILENT", "/NORESTART"]
+    verification:
+      type: "command"
+      command: "git --version"
+
+# Exemplo 3: Node.js com metadados
+nodejs:
+  name: "Node.js"
+  description: "Runtime JavaScript construído no motor V8 do Chrome"
+  category: "Runtimes de Desenvolvimento"
+  
+  metadata:
+    aliases:
+      - "node"
+      - "nodejs"
+      - "node.js"
+      - "npm"
+    tags:
+      - "javascript"
+      - "runtime"
+      - "desenvolvimento web"
+      - "backend"
+      - "npm"
+    executables:
+      - "node.exe"
+      - "npm.exe"
+      - "npx.exe"
+    detection_hints:
+      registry_keys:
+        - "HKEY_LOCAL_MACHINE\\SOFTWARE\\Node.js"
+      common_paths:
+        - "%PROGRAMFILES%\\nodejs"
+        - "%APPDATA%\\npm"
+      commands:
+        - "node --version"
+        - "npm --version"
+      environment_vars:
+        - "NODE_PATH"
+    
+  windows:
+    installer_type: "msi"
+    download_url: "https://nodejs.org/dist/v20.8.0/node-v20.8.0-x64.msi"
+    install_args: ["/quiet", "/norestart"]
+    verification:
+      type: "command"
+      command: "node --version"
+
+# Exemplo 4: Emulador com metadados específicos
+retroarch:
+  name: "RetroArch"
+  description: "Frontend para emuladores, motores de jogos e players de mídia"
+  category: "Emuladores"
+  
+  metadata:
+    aliases:
+      - "retroarch"
+      - "retro arch"
+      - "libretro"
+    tags:
+      - "emulador"
+      - "jogos"
+      - "retro"
+      - "gaming"
+      - "libretro"
+    executables:
+      - "retroarch.exe"
+      - "retroarch_debug.exe"
+    detection_hints:
+      registry_keys:
+        - "HKEY_CURRENT_USER\\Software\\RetroArch"
+      common_paths:
+        - "%APPDATA%\\RetroArch"
+        - "%USERPROFILE%\\RetroArch"
+      file_patterns:
+        - "**/retroarch.exe"
+        - "**/retroarch.cfg"
+    
+  windows:
+    installer_type: "7z"
+    download_url: "https://buildbot.libretro.com/stable/1.16.0/windows/x86_64/RetroArch.7z"
+    extract_to: "%USERPROFILE%\\RetroArch"
+    verification:
+      type: "file"
+      path: "retroarch.exe"
+      location: "%USERPROFILE%\\RetroArch"
+
+# Estrutura de metadados recomendada:
+# metadata:
+#   aliases: []           # Nomes alternativos para correspondência
+#   tags: []             # Tags para categorização e busca
+#   executables: []      # Arquivos executáveis principais
+#   detection_hints:     # Dicas para detecção automática
+#     registry_keys: []  # Chaves do registro Windows
+#     common_paths: []   # Caminhos comuns de instalação
+#     commands: []       # Comandos para verificação
+#     environment_vars: [] # Variáveis de ambiente
+#     file_patterns: []  # Padrões de arquivos para busca

@@ -1,34 +1,6 @@
-# Ferramentas de Qualidade de Código
-flake8>=6.0.0
-pylint>=2.17.0
-bandit>=1.7.5
-mypy>=1.5.0
-
-# Formatação de Código
-black>=23.0.0
-isort>=5.12.0
-
-# Testes
-pytest>=7.4.0
-pytest-cov>=4.1.0
-pytest-mock>=3.11.0
-pytest-qt>=4.2.0
-coverage>=7.2.0
-
-# Documentação
-sphinx>=7.1.0
-sphinx-rtd-theme>=1.3.0
-
-# Pre-commit hooks
-pre-commit>=3.3.0
-
-# Análise de Segurança
-safety>=2.3.0
-
-# Utilitários de desenvolvimento
-wheel>=0.41.0
-twine>=4.0.0
-
-# Dependências para testes específicos do projeto
-requests-mock>=1.11.0
-mock>=5.1.0 
+pytest>=7.0.0
+pytest-cov>=4.0.0
+black>=22.0.0
+flake8>=5.0.0
+mypy>=0.991
+pyinstaller>=5.0.0

@@ -1,0 +1,287 @@
+# Matriz de Compatibilidade - Configuração
+# Define regras de compatibilidade, conflitos conhecidos e estratégias de resolução
+
+version: "1.0"
+created_by: "enhanced_detection_system"
+last_updated: "2024-01-01"
+
+# Regras de compatibilidade entre componentes
+compatibility_rules:
+  # Regras para Python
+  - component1: "python"
+    component2: "pip"
+    compatibility_level: "full"
+    version_constraints:
+      - component1_version: ">=3.8"
+        component2_version: ">=21.0"
+        compatibility: "full"
+      - component1_version: ">=3.6,<3.8"
+        component2_version: ">=20.0,<23.0"
+        compatibility: "partial"
+    
+  # Regras para Node.js
+  - component1: "node"
+    component2: "npm"
+    compatibility_level: "full"
+    version_constraints:
+      - component1_version: ">=16.0"
+        component2_version: ">=8.0"
+        compatibility: "full"
+      - component1_version: ">=14.0,<16.0"
+        component2_version: ">=6.0,<9.0"
+        compatibility: "partial"
+    
+  # Regras para Java
+  - component1: "java"
+    component2: "maven"
+    compatibility_level: "full"
+    version_constraints:
+      - component1_version: ">=11"
+        component2_version: ">=3.6"
+        compatibility: "full"
+      - component1_version: ">=8,<11"
+        component2_version: ">=3.3,<3.9"
+        compatibility: "partial"
+    
+  # Regras para .NET
+  - component1: "dotnet"
+    component2: "nuget"
+    compatibility_level: "full"
+    version_constraints:
+      - component1_version: ">=6.0"
+        component2_version: ">=6.0"
+        compatibility: "full"
+      - component1_version: ">=5.0,<6.0"
+        component2_version: ">=5.0,<7.0"
+        compatibility: "partial"
+
+# Conflitos conhecidos
+known_conflicts:
+  # Conflitos de versão Python
+  - conflict_id: "python_version_conflict"
+    description: "Múltiplas versões do Python podem causar conflitos de PATH"
+    components: ["python"]
+    conflict_type: "version"
+    severity: "medium"
+    detection_criteria:
+      - multiple_versions: true
+        path_conflicts: true
+    resolution_strategies:
+      - strategy: "use_virtual_environments"
+        description: "Usar ambientes virtuais para isolar versões"
+        priority: 1
+      - strategy: "update_path_order"
+        description: "Reorganizar ordem no PATH"
+        priority: 2
+  
+  # Conflitos Node.js
+  - conflict_id: "node_npm_version_mismatch"
+    description: "Versão do npm incompatível com Node.js"
+    components: ["node", "npm"]
+    conflict_type: "dependency"
+    severity: "high"
+    detection_criteria:
+      - version_mismatch: true
+    resolution_strategies:
+      - strategy: "update_npm"
+        description: "Atualizar npm para versão compatível"
+        priority: 1
+      - strategy: "reinstall_node"
+        description: "Reinstalar Node.js com npm integrado"
+        priority: 2
+  
+  # Conflitos Java
+  - conflict_id: "java_multiple_jdk"
+    description: "Múltiplas instalações JDK podem causar conflitos"
+    components: ["java"]
+    conflict_type: "platform"
+    severity: "medium"
+    detection_criteria:
+      - multiple_installations: true
+        java_home_conflicts: true
+    resolution_strategies:
+      - strategy: "set_java_home"
+        description: "Configurar JAVA_HOME corretamente"
+        priority: 1
+      - strategy: "remove_old_versions"
+        description: "Remover versões antigas não utilizadas"
+        priority: 2
+  
+  # Conflitos de porta
+  - conflict_id: "port_conflicts"
+    description: "Conflitos de porta entre serviços de desenvolvimento"
+    components: ["*"]
+    conflict_type: "port"
+    severity: "low"
+    detection_criteria:
+      - port_in_use: true
+    resolution_strategies:
+      - strategy: "change_port"
+        description: "Alterar porta do serviço"
+        priority: 1
+      - strategy: "stop_conflicting_service"
+        description: "Parar serviço conflitante"
+        priority: 2
+
+# Perfis de componentes
+component_profiles:
+  python:
+    category: "runtime"
+    typical_ports: []
+    common_paths:
+      - "/usr/bin/python"
+      - "/usr/local/bin/python"
+      - "C:\\Python*"
+    environment_variables:
+      - "PYTHONPATH"
+      - "PYTHON_HOME"
+    dependencies:
+      - "pip"
+    conflicts_with: []
+    
+  node:
+    category: "runtime"
+    typical_ports: [3000, 8000, 8080]
+    common_paths:
+      - "/usr/bin/node"
+      - "/usr/local/bin/node"
+      - "C:\\Program Files\\nodejs"
+    environment_variables:
+      - "NODE_PATH"
+      - "NPM_CONFIG_PREFIX"
+    dependencies:
+      - "npm"
+    conflicts_with: []
+    
+  java:
+    category: "runtime"
+    typical_ports: [8080, 9000]
+    common_paths:
+      - "/usr/bin/java"
+      - "/usr/local/bin/java"
+      - "C:\\Program Files\\Java"
+    environment_variables:
+      - "JAVA_HOME"
+      - "CLASSPATH"
+    dependencies:
+      - "maven"
+      - "gradle"
+    conflicts_with: []
+    
+  dotnet:
+    category: "runtime"
+    typical_ports: [5000, 5001]
+    common_paths:
+      - "/usr/bin/dotnet"
+      - "C:\\Program Files\\dotnet"
+    environment_variables:
+      - "DOTNET_ROOT"
+      - "DOTNET_CLI_HOME"
+    dependencies:
+      - "nuget"
+    conflicts_with: []
+    
+  git:
+    category: "tool"
+    typical_ports: []
+    common_paths:
+      - "/usr/bin/git"
+      - "C:\\Program Files\\Git"
+    environment_variables:
+      - "GIT_CONFIG"
+    dependencies: []
+    conflicts_with: []
+    
+  docker:
+    category: "platform"
+    typical_ports: [2375, 2376]
+    common_paths:
+      - "/usr/bin/docker"
+      - "C:\\Program Files\\Docker"
+    environment_variables:
+      - "DOCKER_HOST"
+    dependencies: []
+    conflicts_with:
+      - "podman"
+
+# Estratégias de resolução
+resolution_strategies:
+  use_virtual_environments:
+    name: "Usar Ambientes Virtuais"
+    description: "Criar ambientes virtuais isolados para diferentes versões"
+    applicable_to: ["python", "node"]
+    automation_level: "semi_automatic"
+    estimated_time: 300  # segundos
+    
+  update_path_order:
+    name: "Atualizar Ordem do PATH"
+    description: "Reorganizar variável PATH para priorizar versão correta"
+    applicable_to: ["*"]
+    automation_level: "automatic"
+    estimated_time: 60
+    
+  update_npm:
+    name: "Atualizar NPM"
+    description: "Atualizar npm para versão compatível com Node.js"
+    applicable_to: ["npm"]
+    automation_level: "automatic"
+    estimated_time: 120
+    
+  reinstall_node:
+    name: "Reinstalar Node.js"
+    description: "Reinstalar Node.js com npm integrado"
+    applicable_to: ["node"]
+    automation_level: "manual"
+    estimated_time: 600
+    
+  set_java_home:
+    name: "Configurar JAVA_HOME"
+    description: "Definir variável JAVA_HOME corretamente"
+    applicable_to: ["java"]
+    automation_level: "automatic"
+    estimated_time: 30
+    
+  remove_old_versions:
+    name: "Remover Versões Antigas"
+    description: "Desinstalar versões antigas não utilizadas"
+    applicable_to: ["*"]
+    automation_level: "manual"
+    estimated_time: 300
+    
+  change_port:
+    name: "Alterar Porta"
+    description: "Configurar serviço para usar porta diferente"
+    applicable_to: ["*"]
+    automation_level: "semi_automatic"
+    estimated_time: 120
+    
+  stop_conflicting_service:
+    name: "Parar Serviço Conflitante"
+    description: "Interromper serviço que está usando a porta"
+    applicable_to: ["*"]
+    automation_level: "automatic"
+    estimated_time: 30
+
+# Configurações de heurística
+heuristics:
+  version_similarity_threshold: 0.8
+  dependency_depth_limit: 5
+  conflict_detection_timeout: 30
+  cache_ttl: 3600  # 1 hora
+  
+# Configurações de plataforma
+platform_specific:
+  windows:
+    path_separator: ";"
+    executable_extensions: [".exe", ".bat", ".cmd"]
+    registry_detection: true
+    
+  linux:
+    path_separator: ":"
+    executable_extensions: [""]
+    package_managers: ["apt", "yum", "dnf", "pacman"]
+    
+  macos:
+    path_separator: ":"
+    executable_extensions: [""]
+    package_managers: ["brew", "macports"]

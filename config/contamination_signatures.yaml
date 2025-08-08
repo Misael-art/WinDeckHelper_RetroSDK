@@ -1,0 +1,328 @@
+# Assinaturas de Contaminação do Ambiente
+# Define padrões para detectar contaminação e problemas no ambiente de desenvolvimento
+
+version: "1.0"
+created_by: "environment_contamination_detector"
+last_updated: "2024-01-01"
+
+# Assinaturas de processos maliciosos ou problemáticos
+malicious_processes:
+  - name: "crypto_miner_generic"
+    description: "Minerador de criptomoedas genérico"
+    severity: "critical"
+    detection_method: "process_name"
+    patterns:
+      - "*miner*"
+      - "*crypto*"
+      - "xmrig*"
+      - "*coin*"
+    exclusions:
+      - "coinbase*"  # Aplicativo legítimo
+    
+  - name: "suspicious_network_activity"
+    description: "Atividade de rede suspeita"
+    severity: "high"
+    detection_method: "network_connections"
+    patterns:
+      - port: 4444  # Porta comum de backdoors
+      - port: 31337  # Porta hacker comum
+      - suspicious_domains:
+          - "*.tk"
+          - "*.ml"
+          - "tempuri.org"
+    
+  - name: "keylogger_patterns"
+    description: "Padrões de keyloggers"
+    severity: "critical"
+    detection_method: "process_behavior"
+    patterns:
+      - "*keylog*"
+      - "*keystroke*"
+      - processes_with_hooks: true
+
+# Software conflitante conhecido
+conflicting_software:
+  - name: "antivirus_conflicts"
+    description: "Múltiplos antivírus podem causar conflitos"
+    severity: "medium"
+    detection_method: "process_name"
+    patterns:
+      - "avast*"
+      - "avg*"
+      - "norton*"
+      - "mcafee*"
+      - "kaspersky*"
+      - "bitdefender*"
+    conflict_threshold: 2  # Mais de 2 antivírus
+    
+  - name: "development_tool_conflicts"
+    description: "Ferramentas de desenvolvimento conflitantes"
+    severity: "low"
+    detection_method: "installed_software"
+    patterns:
+      - group: "python_versions"
+        items: ["python27", "python38", "python39", "python310", "python311"]
+        conflict_threshold: 3
+      - group: "node_versions"
+        items: ["node14", "node16", "node18", "node20"]
+        conflict_threshold: 3
+    
+  - name: "virtualization_conflicts"
+    description: "Conflitos entre tecnologias de virtualização"
+    severity: "medium"
+    detection_method: "service_running"
+    patterns:
+      - "vmware*"
+      - "virtualbox*"
+      - "hyper-v*"
+      - "docker*"
+    exclusions:
+      - combination: ["docker", "hyper-v"]  # Compatível no Windows
+
+# Poluição do registro (Windows)
+registry_pollution:
+  - name: "orphaned_uninstall_entries"
+    description: "Entradas de desinstalação órfãs"
+    severity: "low"
+    detection_method: "registry_scan"
+    registry_paths:
+      - "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall"
+      - "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall"
+    criteria:
+      - missing_uninstall_executable: true
+      - missing_install_location: true
+    
+  - name: "corrupted_file_associations"
+    description: "Associações de arquivo corrompidas"
+    severity: "medium"
+    detection_method: "registry_scan"
+    registry_paths:
+      - "HKEY_CLASSES_ROOT"
+    criteria:
+      - broken_file_associations: true
+      - missing_default_programs: true
+    
+  - name: "invalid_startup_entries"
+    description: "Entradas de inicialização inválidas"
+    severity: "medium"
+    detection_method: "registry_scan"
+    registry_paths:
+      - "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run"
+      - "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run"
+    criteria:
+      - missing_executable: true
+      - invalid_path: true
+
+# Poluição do PATH
+path_pollution:
+  - name: "duplicate_path_entries"
+    description: "Entradas duplicadas no PATH"
+    severity: "low"
+    detection_method: "environment_variable"
+    variable: "PATH"
+    criteria:
+      - duplicate_entries: true
+    
+  - name: "invalid_path_entries"
+    description: "Entradas inválidas no PATH"
+    severity: "medium"
+    detection_method: "environment_variable"
+    variable: "PATH"
+    criteria:
+      - non_existent_directories: true
+      - inaccessible_directories: true
+    
+  - name: "suspicious_path_entries"
+    description: "Entradas suspeitas no PATH"
+    severity: "high"
+    detection_method: "environment_variable"
+    variable: "PATH"
+    patterns:
+      - "*temp*"
+      - "*tmp*"
+      - "*appdata\\local\\temp*"
+    exclusions:
+      - "C:\\Windows\\Temp"  # PATH legítimo do Windows
+
+# Arquivos temporários problemáticos
+temporary_file_pollution:
+  - name: "excessive_temp_files"
+    description: "Acúmulo excessivo de arquivos temporários"
+    severity: "medium"
+    detection_method: "file_system_scan"
+    directories:
+      - "%TEMP%"
+      - "%TMP%"
+      - "C:\\Windows\\Temp"
+      - "/tmp"
+      - "/var/tmp"
+    criteria:
+      - file_count_threshold: 10000
+      - total_size_threshold: "5GB"
+      - old_files_threshold: 30  # dias
+    
+  - name: "suspicious_temp_executables"
+    description: "Executáveis suspeitos em diretórios temporários"
+    severity: "high"
+    detection_method: "file_system_scan"
+    directories:
+      - "%TEMP%"
+      - "%TMP%"
+      - "/tmp"
+    criteria:
+      - executable_files: true
+      - recently_created: 24  # horas
+    exclusions:
+      - "*installer*"
+      - "*setup*"
+      - "*update*"
+    
+  - name: "log_file_accumulation"
+    description: "Acúmulo de arquivos de log"
+    severity: "low"
+    detection_method: "file_system_scan"
+    directories:
+      - "C:\\ProgramData\\logs"
+      - "/var/log"
+      - "~/.logs"
+    criteria:
+      - file_count_threshold: 1000
+      - total_size_threshold: "1GB"
+      - old_files_threshold: 90  # dias
+
+# Configurações de detecção
+detection_settings:
+  # Frequência de verificação
+  scan_intervals:
+    processes: 300  # 5 minutos
+    network: 600   # 10 minutos
+    registry: 3600 # 1 hora
+    filesystem: 7200 # 2 horas
+  
+  # Limites de performance
+  performance_limits:
+    max_scan_time: 300  # segundos
+    max_memory_usage: "500MB"
+    max_cpu_usage: 25   # porcentagem
+  
+  # Configurações de cache
+  cache_settings:
+    enable_cache: true
+    cache_ttl: 1800  # 30 minutos
+    max_cache_size: "100MB"
+  
+  # Whitelist global
+  global_whitelist:
+    processes:
+      - "explorer.exe"
+      - "dwm.exe"
+      - "winlogon.exe"
+      - "csrss.exe"
+      - "lsass.exe"
+      - "services.exe"
+      - "svchost.exe"
+    
+    directories:
+      - "C:\\Windows\\System32"
+      - "C:\\Program Files"
+      - "C:\\Program Files (x86)"
+      - "/usr/bin"
+      - "/usr/sbin"
+      - "/bin"
+      - "/sbin"
+    
+    registry_keys:
+      - "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows"
+      - "HKEY_LOCAL_MACHINE\\SYSTEM"
+
+# Ações de limpeza recomendadas
+cleanup_actions:
+  duplicate_path_entries:
+    action: "remove_duplicates"
+    description: "Remover entradas duplicadas do PATH"
+    automation_level: "automatic"
+    backup_required: true
+    
+  invalid_path_entries:
+    action: "remove_invalid"
+    description: "Remover entradas inválidas do PATH"
+    automation_level: "automatic"
+    backup_required: true
+    
+  excessive_temp_files:
+    action: "cleanup_old_files"
+    description: "Limpar arquivos temporários antigos"
+    automation_level: "automatic"
+    backup_required: false
+    criteria:
+      - older_than: 7  # dias
+      - exclude_patterns: ["*installer*", "*setup*"]
+    
+  orphaned_uninstall_entries:
+    action: "remove_orphaned_entries"
+    description: "Remover entradas de desinstalação órfãs"
+    automation_level: "semi_automatic"
+    backup_required: true
+    
+  suspicious_processes:
+    action: "terminate_and_quarantine"
+    description: "Terminar processos suspeitos e colocar em quarentena"
+    automation_level: "manual"
+    backup_required: false
+    
+  conflicting_software:
+    action: "recommend_removal"
+    description: "Recomendar remoção de software conflitante"
+    automation_level: "manual"
+    backup_required: false
+
+# Configurações específicas por plataforma
+platform_specific:
+  windows:
+    additional_scan_locations:
+      - "C:\\ProgramData"
+      - "C:\\Users\\*\\AppData"
+    registry_hives:
+      - "HKEY_LOCAL_MACHINE"
+      - "HKEY_CURRENT_USER"
+      - "HKEY_CLASSES_ROOT"
+    
+  linux:
+    additional_scan_locations:
+      - "/opt"
+      - "/usr/local"
+      - "~/.local"
+    package_managers:
+      - "apt"
+      - "yum"
+      - "dnf"
+      - "pacman"
+    
+  macos:
+    additional_scan_locations:
+      - "/Applications"
+      - "~/Applications"
+      - "/Library"
+      - "~/Library"
+    package_managers:
+      - "brew"
+      - "macports"
+
+# Métricas e relatórios
+reporting:
+  metrics_to_track:
+    - "contamination_detections_per_day"
+    - "false_positive_rate"
+    - "cleanup_success_rate"
+    - "scan_performance_metrics"
+  
+  alert_thresholds:
+    critical_contaminations: 1
+    high_contaminations: 3
+    medium_contaminations: 10
+    
+  report_formats:
+    - "json"
+    - "yaml"
+    - "html"
+    - "csv"

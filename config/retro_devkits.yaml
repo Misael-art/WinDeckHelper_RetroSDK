@@ -1,0 +1,290 @@
+global:
+  base_path: F:\Projetos\env_dev
+  auto_detect_devkits: true
+  auto_install_emulators: true
+  auto_install_vscode_extensions: true
+  preferred_emulator_type: accuracy
+  enable_logging: true
+  log_level: INFO
+  backup_projects: true
+  check_updates: true
+  parallel_builds: true
+  max_parallel_jobs: 4
+devkits:
+  GBDK:
+    name: Game Boy Development Kit
+    enabled: true
+    installation_path: null
+    toolchain_path: null
+    include_paths: []
+    library_paths: []
+    environment_vars: {}
+    emulators:
+      bgb:
+        name: BGB
+        executable_path: null
+        command_args: []
+        emulator_type: debug
+        supports_debugging: true
+        supports_save_states: true
+        file_extensions:
+        - .gb
+        - .gbc
+        is_default: true
+      sameboy:
+        name: SameBoy
+        executable_path: null
+        command_args: []
+        emulator_type: accuracy
+        supports_debugging: false
+        supports_save_states: true
+        file_extensions:
+        - .gb
+        - .gbc
+        is_default: false
+    default_emulator: bgb
+    build_settings: {}
+    vscode_extensions:
+    - ms-vscode.cpptools
+    - webfreak.debug
+    - ms-vscode.hexeditor
+  SNES:
+    name: Super Nintendo Development Kit
+    enabled: true
+    installation_path: null
+    toolchain_path: null
+    include_paths: []
+    library_paths: []
+    environment_vars: {}
+    emulators:
+      bsnes:
+        name: bsnes
+        executable_path: null
+        command_args: []
+        emulator_type: accuracy
+        supports_debugging: false
+        supports_save_states: true
+        file_extensions:
+        - .sfc
+        - .smc
+        is_default: true
+      snes9x:
+        name: Snes9x
+        executable_path: null
+        command_args: []
+        emulator_type: speed
+        supports_debugging: false
+        supports_save_states: true
+        file_extensions:
+        - .sfc
+        - .smc
+        is_default: false
+    default_emulator: bsnes
+    build_settings: {}
+    vscode_extensions:
+    - ms-vscode.cpptools
+    - 13xforever.language-x86-64-assembly
+  PSX:
+    name: PlayStation Development Kit
+    enabled: true
+    installation_path: null
+    toolchain_path: null
+    include_paths: []
+    library_paths: []
+    environment_vars: {}
+    emulators:
+      duckstation:
+        name: DuckStation
+        executable_path: null
+        command_args: []
+        emulator_type: accuracy
+        supports_debugging: true
+        supports_save_states: true
+        file_extensions:
+        - .bin
+        - .cue
+        - .iso
+        is_default: true
+      pcsx-redux:
+        name: PCSX-Redux
+        executable_path: null
+        command_args: []
+        emulator_type: debug
+        supports_debugging: true
+        supports_save_states: true
+        file_extensions:
+        - .bin
+        - .cue
+        - .iso
+        is_default: false
+    default_emulator: duckstation
+    build_settings: {}
+    vscode_extensions:
+    - ms-vscode.cpptools
+    - webfreak.debug
+  N64:
+    name: Nintendo 64 Development Kit
+    enabled: true
+    installation_path: null
+    toolchain_path: null
+    include_paths: []
+    library_paths: []
+    environment_vars: {}
+    emulators:
+      ares:
+        name: Ares
+        executable_path: null
+        command_args: []
+        emulator_type: accuracy
+        supports_debugging: false
+        supports_save_states: true
+        file_extensions:
+        - .n64
+        - .z64
+        - .v64
+        is_default: true
+      mupen64plus:
+        name: Mupen64Plus
+        executable_path: null
+        command_args: []
+        emulator_type: speed
+        supports_debugging: false
+        supports_save_states: true
+        file_extensions:
+        - .n64
+        - .z64
+        - .v64
+        is_default: false
+    default_emulator: ares
+    build_settings: {}
+    vscode_extensions:
+    - ms-vscode.cpptools
+    - 13xforever.language-x86-64-assembly
+  GBA:
+    name: Game Boy Advance Development Kit
+    enabled: true
+    installation_path: null
+    toolchain_path: null
+    include_paths: []
+    library_paths: []
+    environment_vars: {}
+    emulators:
+      mgba:
+        name: mGBA
+        executable_path: null
+        command_args: []
+        emulator_type: accuracy
+        supports_debugging: true
+        supports_save_states: true
+        file_extensions:
+        - .gba
+        is_default: true
+      vba-m:
+        name: VBA-M
+        executable_path: null
+        command_args: []
+        emulator_type: speed
+        supports_debugging: false
+        supports_save_states: true
+        file_extensions:
+        - .gba
+        is_default: false
+    default_emulator: mgba
+    build_settings: {}
+    vscode_extensions:
+    - ms-vscode.cpptools
+    - 13xforever.language-x86-64-assembly
+  NeoGeo:
+    name: Neo Geo Development Kit
+    enabled: true
+    installation_path: null
+    toolchain_path: null
+    include_paths: []
+    library_paths: []
+    environment_vars: {}
+    emulators:
+      mame:
+        name: MAME
+        executable_path: null
+        command_args: []
+        emulator_type: accuracy
+        supports_debugging: false
+        supports_save_states: true
+        file_extensions:
+        - .neo
+        is_default: true
+    default_emulator: mame
+    build_settings: {}
+    vscode_extensions:
+    - ms-vscode.cpptools
+    - 13xforever.language-x86-64-assembly
+  NES:
+    name: Nintendo Entertainment System Development Kit
+    enabled: true
+    installation_path: null
+    toolchain_path: null
+    include_paths: []
+    library_paths: []
+    environment_vars: {}
+    emulators:
+      fceux:
+        name: FCEUX
+        executable_path: null
+        command_args: []
+        emulator_type: debug
+        supports_debugging: true
+        supports_save_states: true
+        file_extensions:
+        - .nes
+        is_default: true
+      mesen:
+        name: Mesen
+        executable_path: null
+        command_args: []
+        emulator_type: accuracy
+        supports_debugging: false
+        supports_save_states: true
+        file_extensions:
+        - .nes
+        is_default: false
+    default_emulator: fceux
+    build_settings: {}
+    vscode_extensions:
+    - ms-vscode.cpptools
+    - 13xforever.language-x86-64-assembly
+  Saturn:
+    name: Sega Saturn Development Kit
+    enabled: true
+    installation_path: null
+    toolchain_path: null
+    include_paths: []
+    library_paths: []
+    environment_vars: {}
+    emulators:
+      mednafen:
+        name: Mednafen
+        executable_path: null
+        command_args: []
+        emulator_type: accuracy
+        supports_debugging: false
+        supports_save_states: true
+        file_extensions:
+        - .cue
+        - .iso
+        is_default: true
+      kronos:
+        name: Kronos
+        executable_path: null
+        command_args: []
+        emulator_type: speed
+        supports_debugging: false
+        supports_save_states: true
+        file_extensions:
+        - .cue
+        - .iso
+        is_default: false
+    default_emulator: mednafen
+    build_settings: {}
+    vscode_extensions:
+    - ms-vscode.cpptools
+    - 13xforever.language-x86-64-assembly
